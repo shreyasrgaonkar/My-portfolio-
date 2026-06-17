@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shreyas Gaonkar — AI Engineer & Classical Vocalist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0A0F1E;
+    --navy-mid: #111827;
+    --navy-light: #1E2D45;
+    --blue: #3B82F6;
+    --blue-dim: #1D4ED8;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --white: #F8FAFC;
+    --muted: #94A3B8;
+    --border: rgba(212,160,23,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: linear-gradient(160deg, var(--navy) 0%, #0F1A33 40%, #15233F 75%, var(--navy-light) 100%);
+    background-attachment: fixed;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── CURSOR GLOW ── */
+  .cursor-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 420px;
+    height: 420px;
+    border-radius: 60%;
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(29,78,216,0.08) 45%, transparent 75%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    will-change: transform;
+  }
+  .cursor-glow.active { opacity: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5vw;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .nav-logo img {
+    height: 40px;
+    width: 40px;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 0 1px rgba(212,160,23,0.25);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HAMBURGER ── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── SECTIONS ── */
+  section { position: relative; z-index: 1; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 8vw 6rem;
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.90rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 42ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 0.7rem 1.8rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    padding: 0.7rem 1.8rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  /* ── IMAGE CARD WRAPPER (keeps hover effects off raw img edges) ── */
+  .image-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: rgba(30,45,69,0.25);
+    padding: 1rem;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .image-card:hover {
+    border-color: rgba(212,160,23,0.5);
+    background: rgba(30,45,69,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-img-frame {
+    position: relative;
+    width: min(380px, 90%);
+  }
+  .hero-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    opacity: 0.4;
+    transform: translate(8px, 8px);
+  }
+  .hero-img-frame img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .hero-dual-indicator {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1rem;
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.6rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-align: right;
+  }
+
+  /* ── DIVIDER ── */
+  .raga-divider {
+    margin: 0 8vw;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 7rem 8vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .about-body { font-size: 0.95rem; color: var(--muted); line-height: 1.9; }
+  .about-body p + p { margin-top: 1rem; }
+  em { color: var(--gold-light); font-style: italic; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .stat-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    background: rgba(30,45,69,0.3);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.05em; }
+
+  .about-right {}
+  .dual-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .identity-card {
+    border-left: 2px solid var(--gold);
+    padding: 1rem 1.5rem;
+    background: rgba(30,45,69,0.2);
+    border-radius: 0 4px 4px 0;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .identity-card:hover {
+    background: rgba(30,45,69,0.4);
+    transform: translateX(4px);
+    box-shadow: 0 8px 24px -8px rgba(59,130,246,0.2);
+  }
+  .identity-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .identity-card p { font-size: 0.85rem; color: var(--muted); }
+  .identity-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+  /* ── SKILLS ── */
+  #skills {
+    padding: 7rem 8vw;
+    background: rgba(17,24,39,0.6);
+  }
+  .skills-header { margin-bottom: 3.5rem; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    background: rgba(10,15,30,0.5);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-group:hover { border-color: rgba(212,160,23,0.5); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 2px;
+    color: #93C5FD;
+    background: rgba(59,130,246,0.07);
+    font-family: 'DM Mono', monospace;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+  .skill-tag:hover {
+    border-color: rgba(212,160,23,0.5);
+    background: rgba(212,160,23,0.1);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── EDUCATION & EXPERIENCE ── */
+  #education {
+    padding: 7rem 8vw;
+    background: rgba(17,24,39,0.6);
+  }
+  .timeline {
+    margin: 3rem auto 0;
+    max-width: 900px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+  .timeline-item {
+    position: relative;
+    width: calc(50% - 2.5rem);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: rgba(30,45,69,0.2);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .timeline-item:hover {
+    border-color: rgba(212,160,23,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
+  }
+  .timeline-item:nth-child(odd) {
+    margin-right: auto;
+    text-align: right;
+  }
+  .timeline-item:nth-child(even) {
+    margin-left: auto;
+    text-align: left;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px rgba(212,160,23,0.12);
+  }
+  .timeline-item:nth-child(odd)::before { right: -2.55rem; }
+  .timeline-item:nth-child(even)::before { left: -2.55rem; }
+  .timeline-item.current::before {
+    background: var(--blue);
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
+  }
+  .timeline-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-item.current .timeline-period { color: #93C5FD; }
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-org {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+  .timeline-tag {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 2px;
+    color: #93C5FD;
+    background: rgba(59,130,246,0.07);
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements { padding: 7rem 8vw; text-align: center; }
+  #achievements .section-label { justify-content: center; }
+  .achievements-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+  .achievement-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    background: rgba(10,15,30,0.5);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .achievement-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212,160,23,0.4);
+    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
+  }
+  .achievement-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .achievement-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .achievement-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── PROFESSIONAL STRENGTHS ── */
+  #strengths { padding: 7rem 8vw; text-align: center; }
+  #strengths .section-label { justify-content: center; }
+  .strengths-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .strength-card {
+    text-align: left;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+    background: rgba(30,45,69,0.2);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .strength-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212,160,23,0.4);
+    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
+  }
+  .strength-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .strength-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .strength-list li {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .strength-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  /* ── ABOUT PHOTO ── */
+  .about-photo-wrap {
+    position: relative;
+    margin-bottom: 2.5rem;
+    max-width: 320px;
+  }
+  .about-photo-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    opacity: 0.4;
+    transform: translate(8px, 8px);
+    z-index: -1;
+  }
+  .about-photo-frame img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .about-photo-caption {
+    margin-top: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications {
+    padding: 7rem 8vw;
+  }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .cert-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(30,45,69,0.2);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .cert-card:hover { transform: translateY(-4px); border-color: rgba(212,160,23,0.4); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
+  .cert-issuer {
+    padding: 1.5rem 2rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .cert-name {
+    padding: 0.5rem 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+  }
+  .cert-desc {
+    padding: 0 2rem 1.5rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+  .cert-footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cert-link {
+    font-size: 0.72rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .cert-link:hover { color: var(--gold); }
+
+  /* ── PROJECTS ── */
+  #projects { padding: 7rem 8vw; background: rgba(17,24,39,0.6); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    background: rgba(10,15,30,0.5);
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .project-card:hover { border-color: rgba(212,160,23,0.4); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
+  .project-card:hover::before { opacity: 1; }
+  .project-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+  }
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .project-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    background: rgba(59,130,246,0.1);
+    color: #93C5FD;
+  }
+
+  /* ── MUSIC ── */
+  #music {
+    padding: 7rem 8vw;
+    position: relative;
+  }
+  .music-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .music-img-wrap { position: relative; }
+  .music-img-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .music-img-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    filter: sepia(15%) saturate(0.9);
+  }
+  .music-img-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,15,30,0.6) 0%, transparent 50%);
+  }
+  .tanpura-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .music-ornament {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 60px;
+    height: 60px;
+    border-top: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    opacity: 0.4;
+  }
+
+  .academy-card { margin-top: 1.75rem; padding: 1.75rem; }
+  .academy-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .academy-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .academy-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.85rem;
+  }
+  .academy-desc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+  .academy-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.1rem;
+  }
+  .academy-meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--white);
+  }
+  .academy-meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .academy-meta-row span:last-child { text-align: right; color: var(--muted); }
+
+  .music-certs {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .music-cert-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .music-cert-row::before {
+    content: '♩';
+    color: var(--gold);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* ── GALLERY ── */
+  #gallery { padding: 7rem 8vw; background: rgba(17,24,39,0.6); }
+  .gallery-tabs {
+    display: flex;
+    gap: 0;
+    margin-top: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    padding: 0.75rem 2rem;
+    background: none;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; padding-top: 2rem; }
+  .tab-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .gallery-item {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--navy-light);
+  }
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(10%);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
+  .gallery-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    text-align: center;
+    padding: 1rem;
+    letter-spacing: 0.08em;
+  }
+  .gallery-placeholder span { font-size: 1.5rem; }
+
+  /* ── CONTACT ── */
+  #contact { padding: 7rem 8vw; }
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact-inner h2 { margin-bottom: 1rem; }
+  .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; }
+  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 8vw;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.72rem;
+    color: rgba(148,163,184,0.5);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+  }
+  .footer-gold { color: var(--gold); opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; padding-top: 7rem; text-align: center; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .hero-ctas { justify-content: center; }
+    .hero-image-wrap { order: -1; }
+    .hero-img-frame { width: min(280px, 80vw); }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .timeline::before { left: 1.25rem; }
+    .timeline-item { width: 100%; padding-left: 3.25rem; padding-right: 1.25rem; text-align: left !important; margin: 0 !important; }
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before { left: -2.25rem; right: auto; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .achievements-grid { grid-template-columns: 1fr; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .music-inner { grid-template-columns: 1fr; }
+    .tab-content.active { grid-template-columns: repeat(2, 1fr); }
+
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: fixed;
+      top: 0; right: 0;
+      height: 100vh;
+      width: min(280px, 75vw);
+      background: rgba(10,15,30,0.97);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--border);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 105;
+    }
+    .nav-links.open { transform: translateX(0); display: flex; }
+    .nav-links a { font-size: 0.95rem; }
+
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 6vw; }
+    #hero { padding: 6.5rem 6vw 4rem; }
+    #about, #skills, #certifications, #projects, #music, #contact {
+      padding: 4rem 6vw;
+    }
+    .skills-grid { grid-template-columns: 1fr; }
+    .tab-content.active { grid-template-columns: 1fr; }
+    h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-img-frame { width: min(240px, 75vw); }
+    .contact-links { flex-direction: column; align-items: center; gap: 1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#strengths">Strengths</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">My Self</div>
+    <h1>Shreyas<br/>Ranjit Gaonkar</h1>
+    <div class="hero-subtitle">Where Algorithms Meet Ragas.</div>
+    <p class="hero-desc">
+      Building intelligent systems through Machine Learning and Deep Learning,
+      while preserving the soul of Indian Classical Music. Two disciplines.
+      One pursuit of mastery.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <div class="image-card">
+      <div class="hero-img-frame">
+        <!-- Replace src with your actual photo path -->
+        <img src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="Shreyas Gaonkar" />
+        <div class="hero-dual-indicator">
+          AI / ML Engineering<br/>Indian Classical Music
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left">
+    <div class="section-label">About Me</div>
+    <h2>Two Worlds,<br/>One Mind</h2>
+    <div class="about-body">
+      <p>
+        I am an <em>Artificial Intelligence and Machine Learning</em> engineering student
+        at Bhausaheb Vartak Polytechnic, fascinated by how machines can learn, reason,
+        and create. I work with Computer Vision, Deep Learning, and Data Science
+        to build systems that make sense of the world.
+      </p>
+      <p>
+        Alongside technology, I am a <em>certified Indian Classical Singer and Musician</em>.
+        The discipline of raga—its structure, its infinite variations within constraint—
+        has shaped how I think about algorithms. Both demand patience, rigour, and
+        an ear for what doesn't quite fit.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">AI Certifications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Ragas to Learn</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Internships</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="section-label">Dual Identity</div>
+    <div class="dual-identity">
+      <div class="identity-card">
+        <div class="identity-icon">⚙️</div>
+        <h3>The Engineer</h3>
+        <p>Designing neural networks, exploring data pipelines, and building
+        web experiences with React and modern JavaScript. Comfortable in
+        Python, PyTorch, and Scikit-Learn.</p>
+      </div>
+      <div class="identity-card">
+        <div class="identity-icon">🎵</div>
+        <h3>The Vocalist</h3>
+        <p>Trained in Indian Classical music with years of dedicated practice
+        on Tanpura. Music has taught me the discipline to master difficult
+        skills slowly and the creativity to improvise within structure.</p>
+      </div>
+      <div class="identity-card">
+        <div class="identity-icon">🔗</div>
+        <h3>The Connection</h3>
+        <p>A raga is a learning algorithm in acoustic form: vast pattern space,
+        strict rules, and beautiful emergent behaviour. Both fields reward
+        the same kind of obsession.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- EDUCATION & EXPERIENCE -->
+<section id="education">
+  <div class="section-label">Education &amp; Experience</div>
+  <h2>The Journey So Far</h2>
+  <div class="timeline">
+    <div class="timeline-item current">
+      <div class="timeline-period">2025 — Present</div>
+      <div class="timeline-title">AI/ML Intern</div>
+      <div class="timeline-org">Shri Alwin IT Solutions</div>
+      <div class="timeline-desc">
+        Working as an AI/ML Intern, applying machine learning concepts to
+        real-world problems, contributing to research-driven tasks and
+        gaining hands-on industry experience.
+      </div>
+      <span class="timeline-tag">Internship</span>
+    </div>
+    <div class="timeline-item current">
+      <div class="timeline-period">2024 — Present</div>
+      <div class="timeline-title">Diploma in Artificial Intelligence &amp; Machine Learning Engineering</div>
+      <div class="timeline-org">Vidyavardhini's Bhausaheb Vartak Polytechnic</div>
+      <div class="timeline-desc">
+        Currently pursuing a diploma focused on AI/ML engineering, covering
+        machine learning, data analysis, and practical project-based learning
+        alongside academic coursework.
+      </div>
+      <span class="timeline-tag">Currently Pursuing</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">SSC</div>
+      <div class="timeline-title">Secondary School Certificate</div>
+      <div class="timeline-org">S.S. Dhuri High School, Vasai</div>
+      <div class="timeline-desc">
+        Completed secondary education, building the academic foundation
+        for further studies in AI &amp; ML engineering.
+      </div>
+      <span class="timeline-tag">Completed</span>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Achievements</div>
+  <h2>Milestones &amp; Recognition</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-badge">Dec 2025 · Vasai Taluka Kala Krida</div>
+      <div class="achievement-title">Gold Medal — Singing (Under 18)</div>
+      <div class="achievement-desc">
+        Won the Gold Medal for Singing in the Under-18 category at the
+        Taluka-level competition, Vasai Taluka Kala Krida.
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-badge">Nov–Dec 2025 · ABGMV</div>
+      <div class="achievement-title">Madhyama Purna — Passed</div>
+      <div class="achievement-desc">
+        Successfully passed Madhyama Purna, a classical music examination
+        conducted worldwide by ABGMV (Akhil Bharatiya Gandharva Mahavidyalaya Mandal).
+      </div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-badge">School Years</div>
+      <div class="achievement-title">Multiple Music Prizes</div>
+      <div class="achievement-desc">
+        Won several prizes for music during school years, reflecting
+        consistent practice and a long-standing dedication to classical
+        vocal music alongside academics.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- PROFESSIONAL STRENGTHS -->
+<section id="strengths">
+  <div class="section-label">Professional Strengths</div>
+  <h2>How I Work</h2>
+  <div class="strengths-grid">
+    <div class="strength-card">
+      <div class="strength-title">Research &amp; Problem Solving</div>
+      <ul class="strength-list">
+        <li>Research Skills</li>
+        <li>AI/ML Intern at Shri Alwin IT Solutions</li>
+        <li>Problem Solving</li>
+        <li>AI Solutions &amp; Real-World Thinking</li>
+        <li>Smart Agriculture Focus</li>
+      </ul>
+    </div>
+    <div class="strength-card">
+      <div class="strength-title">Collaboration &amp; Learning</div>
+      <ul class="strength-list">
+        <li>Team Collaboration</li>
+        <li>Bhausaheb Vartak Polytechnic</li>
+        <li>Internship Experience</li>
+        <li>Academic Projects &amp; Group Learning</li>
+      </ul>
+    </div>
+    <div class="strength-card">
+      <div class="strength-title">Communication</div>
+      <ul class="strength-list">
+        <li>Communication</li>
+        <li>Technical Discussions</li>
+        <li>Team Coordination &amp; Presentations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-header">
+    <div class="section-label">Technical Skills</div>
+    <h2>What I Work With</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">AI &amp; Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Computer Vision</span>
+        <span class="skill-tag">AI Chatbots</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Programming &amp; Libraries</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">Matplotlib</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Web Development</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Certifications</div>
+  <h2>Credentials</h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-issuer">EY &amp; Microsoft</div>
+      <div class="cert-name">AI Skills Passport</div>
+      <div class="cert-desc">
+        Completed both general and employability sections of the AI Skills Passport
+        program, covering AI fundamentals, sustainability, business, and technology
+        modules. Jointly offered by Ernst &amp; Young and Microsoft.
+      </div>
+      <div class="cert-footer">
+        <a href="Ai.pdf" class="cert-link">View Certificate →</a>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Coding Chaska</div>
+      <div class="cert-name">AI &amp; Future Technologies</div>
+      <div class="cert-desc">
+        Participated in the Workshop on "AI and Future Technologies" and completed
+        a hands-on lab session on building AI Chatbots, organized at Bhausaheb
+        Vartak Polytechnic for the AI &amp; ML Department on August 23, 2025.
+      </div>
+      <div class="cert-footer">
+        <a href="cc.pdf" class="cert-link">View Certificate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2>Things I've Built</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-type">Web Development</div>
+      <div class="project-name">Swarsanskar Music Academy</div>
+      <p class="project-desc">
+        A fully responsive website for a classical music academy, combining
+        aesthetic design with content showcasing courses, faculty, and
+        Indian Classical Music heritage.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">HTML</span>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">Responsive</span>
+      </div>
+      <a href="https://shreyasrgaonkar.github.io/Swarsanskar/" class="cert-link" >View Project →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-type">Web Development</div>
+      <div class="project-name">Matruchhaya Home Products</div>
+      <p class="project-desc">
+        Business website for a home products brand, designed for clear
+        product browsing and contact functionality with clean visual layout.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">HTML</span>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">UI Design</span>
+      </div>
+      <a href="https://swarshreyas.github.io/Matruchhaya/" class="cert-link" >View Project →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-type">AI Development</div>
+      <div class="project-name">Portfolio Website</div>
+      <p class="project-desc">
+        This site — built with deliberate design choices that bridge classical
+        aesthetics and modern tech. Responsive, accessible, and a bit unusual.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">React</span>
+        <span class="project-tag">Design Systems</span>
+        <span class="project-tag">Responsive</span>
+      </div>
+      <a href="#" class="cert-link">View Project →</a>
+    </div>
+    <div class="project-card" style="border-style: dashed; opacity: 0.6;">
+      <div class="project-type">Coming Soon</div>
+      <div class="project-name">Next Project</div>
+      <p class="project-desc">
+        Currently in development. Watch this space.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">ML</span>
+        <span class="project-tag">Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="music-inner">
+    <div class="music-img-wrap">
+      <div class="image-card">
+        <div class="music-img-frame">
+          <img src="https://i.postimg.cc/GhXZNwSq/Whats-App-Image-2026-06-13-at-10-05-44-AM.jpg" alt="Shreyas playing tanpura" />
+          <div class="tanpura-label">Tanpura · Indian Classical</div>
+        </div>
+      </div>
+      <div class="music-ornament"></div>
+
+      <div class="image-card academy-card">
+        <div class="academy-label">The Academy</div>
+        <h3 class="academy-title">Swarsanskar Music Academy</h3>
+        <p class="academy-desc">
+          Founded by my father and guru, Shri Ranjit Gaonkar, in 2008–09 at
+          Kandivli, the academy was later named Swarsanskar. Today, he continues
+          to run it with our family — now carried on from our home in Vasai.
+        </p>
+        <div class="academy-meta">
+          <div class="academy-meta-row">
+            <span class="academy-meta-label">Founded</span>
+            <span>2008–09 · Kandivli</span>
+          </div>
+          <div class="academy-meta-row">
+            <span class="academy-meta-label">Renamed</span>
+            <span>Swarsanskar</span>
+          </div>
+          <div class="academy-meta-row">
+            <span class="academy-meta-label">Today</span>
+            <span>Family-run · Vasai</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="music-right">
+      <div class="section-label">Music</div>
+      <h2>Indian Classical<br/>Vocalist</h2>
+      <div class="about-body">
+        <p>
+          Classical music is not just a hobby — it is a parallel practice of mastery.I am Student of Shri.Ranjit Dinkar Gaonkar So our Relation is Not on Of Father-Son but Teacher-Student. I have been learning Indian Classical Music for several years, and it has profoundly influenced my approach to problem-solving and creativity.
+          Raga exploration demands the same patience that debugging a neural network does.
+          Each taan is an improvisation; each gradient descent is a search for a minimum
+          neither of us can see in advance.
+        </p>
+        <p>
+          I Sing <em>Indian Classical Music Of Gwalior Gharana</em> and practice Indian Classical Vocal music,
+          having trained consistently across multiple ragas and compositions.
+        </p>
+      </div>
+      <div class="music-certs">
+        <div class="music-cert-row">Trained in Indian Classical Vocal Music</div>
+        <div class="music-cert-row">Classical Singer &amp; Practitioner</div>
+        <div class="music-cert-row">Founder context: Swarsanskar Music Academy website</div>
+        <div class="music-cert-row">Discipline developed over years of consistent riyaz</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="raga-divider"></div>
+
+
+<div class="raga-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content: center;">Contact</div>
+    <h2>Let's Connect</h2>
+    <p class="contact-sub">
+      Whether it's an AI project, a music collaboration, or just a conversation
+      about where these two worlds intersect — I'd love to hear from you.
+    </p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/shreyas-gaonkar-262632411" class="contact-link" target="_blank">LinkedIn</a>
+      <a href="https://github.com/shreyasaneng-oss" class="contact-link" target="_blank">GitHub</a>
+      <a href="mailto:gaonkarshreyas021@gmail.com" class="contact-link">Email</a>
+      <a href="tel:+91 9172844879" class="contact-link">Phone</a>
+      <a href="https://www.instagram.com/swarshreyas.official/" class="contact-link" target="_blank">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Shreyas Gaonkar</span>
+  <span class="footer-gold">AI Engineer · Classical Vocalist · Vasai, Maharashtra</span>
+</footer>
+
+<script>
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Cursor-following glow circle
+  const cursorGlow = document.getElementById('cursorGlow');
+  let glowX = 0, glowY = 0, mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorGlow.classList.add('active');
+  });
+  window.addEventListener('mouseleave', () => cursorGlow.classList.remove('active'));
+  function animateGlow() {
+    glowX += (mouseX - glowX) * 0.12;
+    glowY += (mouseY - glowY) * 0.12;
+    cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateGlow);
+  }
+  animateGlow();
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.cert-card, .project-card, .skill-group, .identity-card, .timeline-item, .achievement-card, .strength-card, .about-photo-wrap').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
