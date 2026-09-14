@@ -1,178 +1,130 @@
-# 🌐 Shreyas R. Gaonkar – Portfolio
+# Shreyas OS
 
-Welcome to my personal portfolio website! This portfolio showcases my skills, projects, education, and passion for Artificial Intelligence, Machine Learning, and Web Development.
+A single-file interactive portfolio that looks and feels like a desktop + mobile operating system — built for **Shreyas Gaonkar** (AI / ML · Classical Vocalist).
 
-## 🚀 Live Demo
-
-🌍 Portfolio Website:
-https://shreyasrgaonkar.github.io/My-portfolio-/
+Open `index.html` in a browser, or deploy it to GitHub Pages / Netlify / any static host.
 
 ---
 
-## 👋 About Me
+## Features
 
-Hello! I'm **Shreyas R. Gaonkar**, an AI & Machine Learning Engineering student with a strong interest in developing intelligent systems and modern web applications. I enjoy learning new technologies, solving real-world problems, and building projects that combine creativity with innovation.
-
----
-
-## ✨ Features
-
-• Modern and Clean User Interface
-
-• Fully Responsive Design
-
-• Interactive Hero Section
-
-• About Me Section
-
-• Skills Showcase
-
-• Projects Gallery
-
-• Education Timeline
-
-• Contact Section
-
-• Social Media Integration
-
-• Smooth Animations
-
-• Optimized Performance
+- **Dual mode UI**
+  - Desktop: windows, taskbar, start menu, drag / resize
+  - Mobile: Pixel-style home screen, widgets, dock, app sheets
+- **Apps:** About, Education, Skills, Projects, Achievements, Certifications, Music, Contact, Terminal, Settings, **Chat**
+- **Themes:** RGB gaming dark mode + soft blue-gradient light mode
+- **Google Search** on desktop taskbar and mobile home screen
+- **Live battery %** (where the browser Battery API is available)
+- **AI Chat** via Groq (API key stays on your server — visitors never enter a key)
+- **Keyboard shortcuts**
+  - `Ctrl + D` → Desktop
+  - `Ctrl + M` → Mobile
+  - `Ctrl + L` → Lock screen
 
 ---
 
-## 🛠️ Technologies Used
+## Quick start
 
-Frontend
-- HTML5
-- CSS3
-- JavaScript
+1. Download or clone this repo.
+2. Open `index.html` in Chrome / Edge (best support).
+3. Or deploy the file to GitHub Pages / Netlify / Cloudflare Pages.
 
-Design
-- Responsive Web Design
-- CSS Flexbox
-- CSS Grid
-- CSS Animations
+No build step. No `npm install`. One HTML file.
 
-Deployment
-- GitHub Pages
+> **Note:** Battery % and some APIs work best on **HTTPS** or `localhost`. Opening via `file://` may limit battery and mic-related features.
 
 ---
 
-## 📂 Project Structure
+## Project structure
 
-My-portfolio/
-│
-├── assets/
-│   ├── images/
-│   ├── icons/
-│   ├── css/
-│   └── js/
-│
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── LICENSE
+```
+├── index.html        # Full OS UI + CSS + JS (main deliverable)
+├── groq-worker.js    # Cloudflare Worker proxy for Groq chat (optional)
+└── README.md
+```
+
+Icons are **inline SVGs** inside `index.html`. There is no `icons/` folder to upload.
 
 ---
 
-## 📑 Website Sections
+## AI Chat (Groq) setup
 
-• Home
+Visitors should **not** paste API keys. You host a small proxy once.
 
-• About
+### 1. Get a Groq API key
 
-• Skills
+- [https://console.groq.com/keys](https://console.groq.com/keys)
 
-• Projects
+### 2. Deploy the Cloudflare Worker
 
-• Education
+1. [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Worker**
+2. Paste the contents of `groq-worker.js`
+3. **Settings → Variables** → add secret:
+   - Name: `GROQ_API_KEY`
+   - Value: your Groq key
+4. Deploy and copy the worker URL  
+   Example: `https://shreyas-chat.your-subdomain.workers.dev`
 
-• Contact
+### 3. Point the portfolio at the worker
 
----
+In `index.html`, find:
 
-## 💻 Getting Started
+```js
+const CHAT_API_URL = 'https://YOUR-WORKER.workers.dev';
+```
 
-1. Clone the repository
+Replace with your real worker URL.
 
-git clone https://github.com/shreyasrgaonkar/My-portfolio-.git
+### Model
 
-2. Open the project folder
+Default model in the worker:
 
-cd My-portfolio-
+```js
+model: 'openai/gpt-oss-20b'
+```
 
-3. Run the project
-
-Open the "index.html" file in your browser
-
-OR
-
-Use the Live Server extension in Visual Studio Code.
-
----
-
-## 📱 Responsive Design
-
-The website is optimized for:
-
-• Desktop
-
-• Laptop
-
-• Tablet
-
-• Mobile Devices
+If Groq changes free-tier models, edit that string in the worker and redeploy. Alternatives that often work on free tier: `openai/gpt-oss-120b`, `groq/compound-mini`.
 
 ---
 
-## 🎯 Future Enhancements
+## Customization
 
-• Dark / Light Theme
-
-• AI & Machine Learning Project Showcase
-
-• Resume Download
-
-• Certifications Section
-
-• Experience Timeline
-
-• Project Filtering
-
-• Blog Section
-
-• More Interactive Animations
+| What | Where |
+|------|--------|
+| Theme colors | CSS `:root` and `:root[data-theme="light"]` in `index.html` |
+| Wallpapers | `--wallpaper` / `--desktop-wallpaper` + `WALLPAPERS` JS object |
+| App content | `APPS` array in `index.html` |
+| Chat personality | `CHAT_SYSTEM` string in `index.html` |
+| Contact links | Contact app `content` in `APPS` |
 
 ---
 
-## 🤝 Connect With Me
+## Deploy (GitHub Pages)
 
-🌐 Portfolio
-https://shreyasrgaonkar.github.io/My-portfolio-/
+1. Create a repo and upload **`index.html`** (and this README if you want).
+2. **Settings → Pages → Deploy from branch** → `main` / root.
+3. After deploy, set `CHAT_API_URL` to your HTTPS worker URL (already done if you edited before upload).
 
-💻 GitHub
-https://github.com/shreyasrgaonkar
-
-📧 Email
-your-email@example.com
-
-💼 LinkedIn
-https://linkedin.com/in/your-linkedin-profile
+No need to upload an icons folder.
 
 ---
 
-## ⭐ Support
+## Browser support
 
-If you found this project useful or inspiring, consider giving it a ⭐ on GitHub. Your support motivates me to continue building and sharing more projects.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+- **Recommended:** Chromium (Chrome, Edge, Brave)
+- Firefox / Safari: UI works; battery API and some effects may differ
+- Mobile browsers: use Mobile mode (`Ctrl+M` or narrow window)
 
 ---
 
-Made with ❤️ by Shreyas R. Gaonkar
+## Credits
+
+- Portfolio of **Shreyas Ranjit Gaonkar**
+- AI replies powered by **Groq** (via your Cloudflare Worker)
+- Optional wallpapers via Unsplash / hosted profile images
+
+---
+
+## License
+
+Personal portfolio project. Reuse the OS shell idea freely; keep personal content and branding respectful of the original author.
