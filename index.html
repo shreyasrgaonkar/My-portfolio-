@@ -2,1574 +2,2874 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shreyas Gaonkar — AI Engineer & Classical Vocalist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>Shreyas OS — AI Engineer & Classical Vocalist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --navy: #0A0F1E;
-    --navy-mid: #111827;
-    --navy-light: #1E2D45;
-    --blue: #3B82F6;
-    --blue-dim: #1D4ED8;
-    --gold: #D4A017;
-    --gold-light: #F0C040;
-    --white: #F8FAFC;
-    --muted: #94A3B8;
-    --border: rgba(212,160,23,0.2);
+    /* RGB Gaming + Professional Theme */
+    --navy: #0B0E14;
+    --navy-mid: #11151F;
+    --navy-light: #1A2030;
+    --blue: #00E5FF;
+    --blue-dim: #00A8CC;
+    --gold: #7C5CFF;
+    --gold-light: #A78BFF;
+    --accent-cyan: #00E5FF;
+    --accent-magenta: #FF2E9F;
+    --accent-purple: #7C5CFF;
+    --white: #F0F4F8;
+    --muted: #8B95A8;
+    --border: rgba(124, 92, 255, 0.18);
+    --glass: rgba(15, 18, 28, 0.88);
+    --glass-light: rgba(22, 28, 42, 0.78);
+    --success: #22C55E;
+    --danger: #EF4444;
+    --glass-strong: rgba(12, 15, 24, 0.92);
+    --hover-bg: rgba(124, 92, 255, 0.12);
+    --card-bg: rgba(124, 92, 255, 0.07);
+    --card-bg-hover: rgba(124, 92, 255, 0.14);
+    --wallpaper:
+      radial-gradient(circle at 12% 18%, rgba(0, 229, 255, 0.14) 0%, transparent 42%),
+      radial-gradient(circle at 88% 82%, rgba(124, 92, 255, 0.16) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(255, 46, 159, 0.06) 0%, transparent 55%),
+      linear-gradient(160deg, rgba(8, 10, 18, 0.82) 0%, rgba(12, 15, 28, 0.7) 50%, rgba(6, 8, 16, 0.9) 100%),
+      url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?fm=jpg&q=80&w=2400&auto=format&fit=crop') center / cover no-repeat;
+    --desktop-wallpaper:
+      radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.10) 0%, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(124, 92, 255, 0.12) 0%, transparent 42%),
+      linear-gradient(160deg, rgba(8, 10, 18, 0.75) 0%, rgba(14, 16, 28, 0.55) 50%, rgba(6, 8, 14, 0.85) 100%),
+      linear-gradient(135deg, #0B0E14 0%, #12182A 45%, #0B0E14 100%);
   }
 
+  :root[data-theme="light"] {
+    /* Soft Blue RGB Light Theme — not pure white */
+    --navy: #E8F0FA;
+    --navy-mid: #F4F8FC;
+    --navy-light: #D6E4F5;
+    --blue: #0284C7;
+    --blue-dim: #0369A1;
+    --gold: #6D28D9;
+    --gold-light: #7C3AED;
+    --accent-cyan: #0891B2;
+    --accent-magenta: #DB2777;
+    --accent-purple: #6D28D9;
+    --white: #1E293B;
+    --muted: #5B6B80;
+    --border: rgba(2, 132, 199, 0.16);
+    --glass: rgba(244, 248, 252, 0.88);
+    --glass-light: rgba(255, 255, 255, 0.78);
+    --glass-strong: rgba(255, 255, 255, 0.92);
+    --hover-bg: rgba(2, 132, 199, 0.09);
+    --card-bg: rgba(2, 132, 199, 0.06);
+    --card-bg-hover: rgba(109, 40, 217, 0.08);
+    /* Login / Lock — technical soft-blue wallpaper (light mode only) */
+    --wallpaper:
+      radial-gradient(circle at 15% 12%, rgba(56, 189, 248, 0.25) 0%, transparent 40%),
+      radial-gradient(circle at 85% 88%, rgba(124, 92, 255, 0.14) 0%, transparent 42%),
+      linear-gradient(165deg, rgba(200, 225, 250, 0.72) 0%, rgba(170, 205, 240, 0.55) 50%, rgba(150, 190, 230, 0.7) 100%),
+      url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?fm=jpg&q=80&w=2400&auto=format&fit=crop') center / cover no-repeat;
+    /* Desktop — slightly different technical depth */
+    --desktop-wallpaper:
+      radial-gradient(circle at 12% 18%, rgba(14, 165, 233, 0.2) 0%, transparent 38%),
+      radial-gradient(circle at 88% 78%, rgba(124, 92, 255, 0.12) 0%, transparent 40%),
+      linear-gradient(160deg, rgba(185, 215, 245, 0.65) 0%, rgba(160, 200, 235, 0.5) 50%, rgba(140, 185, 225, 0.68) 100%),
+      url('https://images.unsplash.com/photo-1518770660439-4636190af475?fm=jpg&q=75&w=2400&auto=format&fit=crop') center / cover no-repeat;
+  }
+
+  html { transition: background 0.3s ease; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
+  html, body { height: 100%; overflow: hidden; }
   body {
-    background: linear-gradient(160deg, var(--navy) 0%, #0F1A33 40%, #15233F 75%, var(--navy-light) 100%);
-    background-attachment: fixed;
+    background: var(--navy);
     color: var(--white);
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
+    font-family: 'Segoe UI', 'Segoe UI Variable', Inter, system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    touch-action: manipulation;
   }
 
-  /* ── CURSOR GLOW ── */
-  .cursor-glow {
-    position: fixed;
-    top: 0; left: 0;
-    width: 420px;
-    height: 420px;
-    border-radius: 60%;
-    pointer-events: none;
-    z-index: 2;
-    background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(29,78,216,0.08) 45%, transparent 75%);
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    will-change: transform;
+  /* ═══════════════════════════════════════
+     BOOT / LOADING
+  ═══════════════════════════════════════ */
+  #boot-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s;
   }
-  .cursor-glow.active { opacity: 1; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 5vw;
-    background: rgba(10,15,30,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+  #boot-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .boot-logo {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 2.8rem; font-weight: 700;
     color: var(--gold);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+    text-shadow: 0 0 18px rgba(124, 92, 255, 0.55), 0 0 36px rgba(0, 229, 255, 0.25);
   }
-  .nav-logo img {
-    height: 40px;
-    width: 40px;
-    display: block;
-    border-radius: 50%;
-    object-fit: cover;
+  .boot-sub {
+    font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace;
+    font-size: 0.75rem; letter-spacing: 0.25em;
+    color: var(--muted); text-transform: uppercase;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .boot-bar {
+    width: 180px; height: 3px; margin-top: 2.5rem;
+    background: rgba(255,255,255,0.08); border-radius: 2px;
+    overflow: hidden; opacity: 0; animation: fadeUp 0.5s 1s forwards;
+  }
+  .boot-bar-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, #00E5FF, #7C5CFF, #FF2E9F, #00E5FF);
+    background-size: 200% 100%;
+    border-radius: 2px;
+    animation: bootProgress 2.2s 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+    box-shadow: 0 0 14px rgba(0, 229, 255, 0.5);
+  }
+  .boot-status {
+    margin-top: 1rem; font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace;
+    font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em;
+    opacity: 0; animation: fadeUp 0.5s 1.4s forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bootProgress {
+    0% { width: 0%; }
+    30% { width: 35%; }
+    60% { width: 68%; }
+    85% { width: 92%; }
+    100% { width: 100%; }
+  }
+
+  /* ═══════════════════════════════════════
+     LOGIN / LOCK
+  ═══════════════════════════════════════ */
+  #login-screen, #lock-screen {
+    position: fixed; inset: 0; z-index: 9000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: var(--wallpaper);
+    transition: opacity 0.5s ease, visibility 0.5s, background 0.4s ease;
+  }
+  #login-screen.hidden, #lock-screen.hidden {
+    opacity: 0; visibility: hidden; pointer-events: none;
+  }
+  .login-avatar {
+    width: 96px; height: 96px; border-radius: 50%;
     border: 2px solid var(--gold);
-    box-shadow: 0 0 0 1px rgba(212,160,23,0.25);
+    object-fit: cover; margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.3), 0 0 22px rgba(0, 229, 255, 0.25);
   }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
+  .login-name {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.6rem; margin-bottom: 0.25rem;
   }
-  .nav-links a:hover { color: var(--gold-light); }
-
-  /* ── HAMBURGER ── */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 110;
+  .login-hint {
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem;
   }
-  .nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--gold);
-    transition: transform 0.25s ease, opacity 0.25s ease;
+  .login-btn {
+    padding: 0.75rem 2.2rem;
+    background: linear-gradient(135deg, #7C5CFF, #5B3FD9);
+    color: #fff;
+    border: none; border-radius: 6px;
+    font-weight: 600; font-size: 0.85rem;
+    letter-spacing: 0.06em; cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(124, 92, 255, 0.4);
   }
-  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-toggle.open span:nth-child(2) { opacity: 0; }
-  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* ── SECTIONS ── */
-  section { position: relative; z-index: 1; }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-    padding: 8rem 8vw 6rem;
+  .login-btn:hover { background: linear-gradient(135deg, #9580FF, #7C5CFF); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0, 229, 255, 0.35); }
+  .login-time {
+    text-align: center; margin-bottom: 1.4rem;
   }
-  .hero-text {}
-  .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.90rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
+  .calligraphy-hero {
+    font-family: 'Playfair Display', 'Segoe UI', serif;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 0.4rem;
-  }
-  .hero-subtitle {
-    font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    color: var(--gold);
-    margin-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 18px rgba(0,229,255,0.35), 0 0 32px rgba(124,92,255,0.25), 0 4px 30px rgba(0,0,0,0.65);
+    line-height: 1.15;
+    pointer-events: none;
+    user-select: none;
   }
-  .hero-desc {
-    font-size: 0.95rem;
-    color: var(--muted);
-    max-width: 42ch;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
+  :root[data-theme="light"] .calligraphy-hero {
+    color: #1E293B;
+    text-shadow: 0 2px 14px rgba(255,255,255,0.7), 0 1px 4px rgba(14,165,233,0.2);
   }
-  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    padding: 0.7rem 1.8rem;
-    background: var(--gold);
-    color: var(--navy);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: px;
-    transition: background 0.2s, transform 0.15s;
+  .desktop-hero {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 4.2vw, 3.6rem);
+    width: 80%;
+    z-index: 1;
   }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-secondary {
-    padding: 0.7rem 1.8rem;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  .login-time .big {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 4.5rem; font-weight: 700; line-height: 1;
+    color: var(--white);
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-  /* ── IMAGE CARD WRAPPER (keeps hover effects off raw img edges) ── */
-  .image-card {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: rgba(30,45,69,0.25);
-    padding: 1rem;
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  .login-time .date {
+    font-size: 1rem; color: var(--muted); margin-top: 0.4rem;
   }
-  .image-card:hover {
-    border-color: rgba(212,160,23,0.5);
-    background: rgba(30,45,69,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
+  :root[data-theme="light"] .login-time .big {
+    text-shadow: 0 2px 12px rgba(255,255,255,0.6);
   }
 
-  .hero-image-wrap {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  /* Lock screen specific (mobile) */
+  #lock-screen .lock-time { font-size: 5rem; font-weight: 300; letter-spacing: -0.02em; }
+  #lock-screen .lock-date { font-size: 1.1rem; color: var(--muted); margin-top: 0.3rem; }
+  #lock-screen .swipe-hint {
+    position: absolute; bottom: 8%;
+    font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace; font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.15em;
+    animation: pulse 2s infinite;
   }
-  .hero-img-frame {
-    position: relative;
-    width: min(380px, 90%);
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
   }
-  .hero-img-frame::before {
+
+  /* ═══════════════════════════════════════
+     DESKTOP MODE
+  ═══════════════════════════════════════ */
+  #desktop {
+    position: fixed; inset: 0; display: none;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  #desktop.active { display: block; }
+
+  .desktop-wallpaper {
+    position: absolute; inset: 0;
+    background: var(--desktop-wallpaper);
+    transition: background 0.4s ease;
+  }
+  .desktop-wallpaper::after,
+  #mobile::before {
     content: '';
-    position: absolute;
-    inset: -6px;
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    opacity: 0.4;
-    transform: translate(8px, 8px);
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  .hero-img-frame img {
-    width: 100%;
-    border-radius: 4px;
-    display: block;
-    filter: grayscale(20%) contrast(1.05);
+  #mobile::before { z-index: 0; }
+  #mobile > * { position: relative; z-index: 1; }
+
+  /* Desktop icons */
+  .desktop-icons {
+    position: absolute; top: 24px; left: 24px;
+    display: flex; flex-direction: column; gap: 18px;
+    z-index: 10;
   }
-  .hero-dual-indicator {
-    position: absolute;
-    bottom: -1.5rem;
-    right: -1rem;
-    background: var(--navy-light);
+  .desk-icon {
+    width: 80px; display: flex; flex-direction: column;
+    align-items: center; gap: 6px; cursor: pointer;
+    padding: 8px 4px; border-radius: 8px;
+    transition: background 0.15s;
+  }
+  .desk-icon:hover { background: var(--hover-bg); }
+  .desk-icon:active { background: var(--hover-bg); }
+  .desk-icon .icon-img {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    background: var(--glass-light);
     border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 0.6rem 1rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-    text-align: right;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+  :root[data-theme="light"] .desk-icon .icon-img {
+    box-shadow: 0 4px 14px rgba(109, 40, 217, 0.08);
+  }
+  .svg-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15em; height: 1.15em;
+    flex: 0 0 auto;
+    color: inherit;
+  }
+  .svg-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .desktop-app-svg { width: 28px; height: 28px; color: var(--white); }
+  .start-app-svg { width: 24px; height: 24px; color: var(--white); }
+  .window-app-svg { width: 16px; height: 16px; color: var(--muted); }
+  .task-app-svg { width: 17px; height: 17px; color: currentColor; }
+
+  .desk-icon .icon-label {
+    font-size: 0.72rem; text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.55);
+    max-width: 76px; line-height: 1.25;
+  }
+  :root[data-theme="light"] .desk-icon .icon-label {
+    text-shadow: 0 1px 3px rgba(255,255,255,0.85);
+    color: #1E293B;
+    font-weight: 500;
   }
 
-  /* ── DIVIDER ── */
-  .raga-divider {
-    margin: 0 8vw;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  /* Windows */
+  .window {
+    position: absolute;
+    min-width: 320px; min-height: 240px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.03);
+    display: flex; flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+    opacity: 0; transform: scale(0.95) translateY(10px);
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .window.open { opacity: 1; transform: scale(1) translateY(0); }
+  .window.focused { z-index: 200; border-color: rgba(124, 92, 255, 0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(0,229,255,0.18), 0 0 28px rgba(124,92,255,0.18); }
+  :root[data-theme="light"] .window {
+    box-shadow: 0 16px 40px rgba(14, 100, 180, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.08);
+  }
+  :root[data-theme="light"] .window.focused {
+    border-color: rgba(109, 40, 217, 0.4);
+    box-shadow: 0 16px 40px rgba(14, 100, 180, 0.14), 0 0 0 1px rgba(109, 40, 217, 0.18), 0 0 22px rgba(109, 40, 217, 0.1);
+  }
+  .window-titlebar {
+    height: 32px; flex-shrink: 0;
+    background: var(--glass-strong);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 0 0 12px; gap: 8px;
+    cursor: grab;
+  }
+  .window-titlebar:active { cursor: grabbing; }
+  .window-controls {
+    display: flex; align-items: stretch;
+    height: 32px; margin-left: auto;
+    order: 2;
+  }
+  .win-btn {
+    width: 44px; height: 32px; border-radius: 0;
+    border: none; cursor: pointer;
+    background: transparent;
+    color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.7rem;
+    transition: background 0.12s, color 0.12s;
+  }
+  .win-btn:hover { filter: none; background: var(--hover-bg); color: var(--white); }
+  .win-close:hover { background: #C42B1C; color: #fff; }
+  .win-min::before { content: '\2013'; font-size: 0.95rem; transform: translateY(6px); }
+  .win-max::before { content: '\25A1'; font-size: 0.75rem; }
+  .win-close::before { content: '\2715'; font-size: 0.7rem; }
+  .window-title {
+    flex: 1; text-align: left; order: 1;
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--muted); letter-spacing: 0.01em;
+    display: flex; align-items: center; gap: 6px;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  }
+  .window-body {
+    flex: 1; overflow-y: auto; padding: 20px;
+    font-size: 0.9rem;
+  }
+  .window-body::-webkit-scrollbar { width: 6px; }
+  .window-body::-webkit-scrollbar-thumb {
+    background: rgba(148,163,184,0.3); border-radius: 3px;
   }
 
-  /* ── ABOUT ── */
-  #about {
-    padding: 7rem 8vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
+  /* Taskbar */
+  .taskbar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 48px; z-index: 500;
+    background: var(--glass-strong);
+    backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 8px; gap: 4px;
   }
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 1rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
+  .start-btn {
+    width: 44px; height: 40px; border-radius: 4px;
+    background: transparent; border: none;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .start-btn:hover, .start-btn.active { background: var(--hover-bg); }
+  .win-logo {
+    width: 18px; height: 18px;
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 2px;
+  }
+  .win-logo span { background: var(--gold); box-shadow: 0 0 5px rgba(124,92,255,0.55); }
+  .taskbar-search {
+    display: flex; align-items: center; gap: 8px;
+    height: 34px;
+    min-width: 180px;
+    max-width: 280px;
+    flex: 0 1 240px;
+    margin: 0 8px;
+    padding: 0 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .taskbar-search:focus-within {
+    border-color: rgba(124, 92, 255, 0.45);
+    background: rgba(255,255,255,0.12);
+  }
+  :root[data-theme="light"] .taskbar-search {
+    background: rgba(255,255,255,0.7);
+  }
+  .taskbar-search .ts-g {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    color: #fff; font-size: 0.55rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .taskbar-search input {
+    flex: 1; min-width: 0;
+    background: transparent; border: none; outline: none;
+    color: var(--white); font-size: 0.78rem; font-family: inherit;
+  }
+  .taskbar-search input::placeholder { color: var(--muted); }
+  :root[data-theme="light"] .taskbar-search input { color: #1E293B; }
+
+  .taskbar-apps {
+    display: flex; gap: 2px; flex: 1;
+    justify-content: center; align-items: center;
+  }
+  .task-app {
+    height: 40px; padding: 0 12px; border-radius: 4px;
+    background: transparent; border: none;
+    color: var(--muted); font-size: 0.78rem;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    transition: background 0.15s, color 0.15s;
+    position: relative;
+  }
+  .task-app:hover { background: var(--hover-bg); color: var(--white); }
+  .task-app.active { background: rgba(255,255,255,0.10); color: var(--white); }
+  .task-app .dot {
+    position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+    width: 16px; height: 3px; border-radius: 2px;
+    background: linear-gradient(90deg, #00E5FF, #7C5CFF);
+    opacity: 0;
+    box-shadow: 0 0 6px rgba(0,229,255,0.6);
+  }
+  .task-app.active .dot { opacity: 1; }
+  .taskbar-tray {
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+    padding-right: 4px;
+  }
+  .taskbar-batt {
+    font-size: 0.7rem; color: var(--muted);
+    display: flex; align-items: center; gap: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .taskbar-batt .batt-icon {
+    width: 22px; height: 11px;
+    border: 1.5px solid currentColor;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+  }
+  .taskbar-batt .batt-icon::after {
+    content: '';
+    position: absolute; right: -3px; top: 2px;
+    width: 2px; height: 5px;
+    background: currentColor;
+    border-radius: 0 1px 1px 0;
+  }
+  .taskbar-batt .batt-fill {
+    position: absolute; left: 1px; top: 1px; bottom: 1px;
+    background: #22C55E;
+    border-radius: 1px;
+    max-width: calc(100% - 2px);
+  }
+  .taskbar-batt.low .batt-fill { background: #EF4444; }
+  .taskbar-clock {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.72rem; color: var(--white);
+    padding: 0 8px; text-align: right; line-height: 1.3;
+    flex-shrink: 0;
+  }
+
+  /* Start Menu */
+  .start-menu {
+    position: absolute; bottom: 58px; left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 380px; max-height: 460px;
+    background: var(--glass);
+    backdrop-filter: blur(28px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    z-index: 600;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .start-menu.open { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .start-header {
+    padding: 14px 20px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .start-header img {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1.5px solid var(--gold); object-fit: cover;
+  }
+  .start-header .name { font-weight: 600; font-size: 0.85rem; }
+  .start-header .role { font-size: 0.68rem; color: var(--muted); }
+  .start-apps {
+    padding: 20px 20px 8px; max-height: 320px; overflow-y: auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+  }
+  .start-apps::before {
+    content: 'Pinned'; grid-column: 1 / -1;
+    font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; font-weight: 500;
+  }
+  .start-app {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 12px 4px; border-radius: 6px;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .start-app:hover { background: var(--hover-bg); }
+  .start-app .sa-icon {
+    width: 36px; height: 36px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem; background: var(--navy-light);
+  }
+  .start-app .sa-name { font-size: 0.68rem; text-align: center; color: var(--white); line-height: 1.2; }
+  .start-footer {
+    padding: 10px 14px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+  }
+  .start-footer button {
+    background: none; border: none; color: var(--muted);
+    font-size: 0.75rem; cursor: pointer; padding: 6px 10px;
+    border-radius: 6px; transition: background 0.15s, color 0.15s;
+  }
+  .start-footer button:hover { background: var(--hover-bg); color: var(--white); }
+
+  /* ═══════════════════════════════════════
+     MOBILE MODE
+  ═══════════════════════════════════════ */
+  #mobile {
+    position: fixed; inset: 0; display: none;
+    background: var(--wallpaper);
+    background-attachment: fixed;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  #mobile.active { display: flex; }
+
+  /* Pixel-style status bar */
+  .status-bar {
+    height: 30px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 22px 0;
+    font-size: 0.7rem; font-weight: 600;
+    background: transparent; z-index: 50;
+    color: var(--white);
+  }
+  .status-icons { display: flex; gap: 10px; align-items: center; opacity: 0.85; font-size: 0.65rem; }
+  .sb-batt {
+    border: 1.5px solid currentColor; border-radius: 3px;
+    padding: 0 4px; font-size: 0.6rem; line-height: 1.3;
+  }
+
+  .home-screen {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 10px 18px 0;
+    overflow: hidden;
+    position: relative; z-index: 2;
+    gap: 14px;
+  }
+
+  /* Weather pill widget */
+  .widget-weather {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(30, 40, 60, 0.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px;
+    padding: 11px 16px;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  :root[data-theme="light"] .widget-weather {
+    background: rgba(255,255,255,0.7);
+    color: #1E293B;
+    border-color: rgba(2,132,199,0.1);
+  }
+  .ww-icon { color: var(--blue); font-size: 1rem; flex-shrink: 0; }
+  .ww-temp { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ww-right { font-size: 0.72rem; opacity: 0.7; flex-shrink: 0; }
+
+  /* Media / profile card widget */
+  .widget-media {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(25, 32, 50, 0.6);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 12px 14px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  :root[data-theme="light"] .widget-media {
+    background: rgba(255,255,255,0.75);
+    border-color: rgba(2,132,199,0.1);
+  }
+  .wm-art {
+    width: 48px; height: 48px; border-radius: 12px;
+    object-fit: cover; flex-shrink: 0;
+  }
+  .wm-info { flex: 1; min-width: 0; }
+  .wm-title { font-weight: 600; font-size: 0.9rem; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wm-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  :root[data-theme="light"] .wm-title { color: #1E293B; }
+  .wm-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: rgba(255,255,255,0.12);
+    color: var(--white); font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  :root[data-theme="light"] .wm-btn { background: rgba(109,40,217,0.12); color: #6D28D9; }
+
+  /* Mid row: apps + clock — vertically centered */
+  .home-mid {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 2px 2px;
+    flex-shrink: 0;
   }
-  .section-label::before {
-    content: '';
-    display: inline-block;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-  .about-body { font-size: 0.95rem; color: var(--muted); line-height: 1.9; }
-  .about-body p + p { margin-top: 1rem; }
-  em { color: var(--gold-light); font-style: italic; }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-  }
-  .stat-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.25rem 1.5rem;
-    background: rgba(30,45,69,0.3);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-  }
-  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; letter-spacing: 0.05em; }
-
-  .about-right {}
-  .dual-identity {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .identity-card {
-    border-left: 2px solid var(--gold);
-    padding: 1rem 1.5rem;
-    background: rgba(30,45,69,0.2);
-    border-radius: 0 4px 4px 0;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .identity-card:hover {
-    background: rgba(30,45,69,0.4);
-    transform: translateX(4px);
-    box-shadow: 0 8px 24px -8px rgba(59,130,246,0.2);
-  }
-  .identity-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-  }
-  .identity-card p { font-size: 0.85rem; color: var(--muted); }
-  .identity-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-
-  /* ── SKILLS ── */
-  #skills {
-    padding: 7rem 8vw;
-    background: rgba(17,24,39,0.6);
-  }
-  .skills-header { margin-bottom: 3.5rem; }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  .skill-group {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    background: rgba(10,15,30,0.5);
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .skill-group:hover { border-color: rgba(212,160,23,0.5); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
-  .skill-group-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid rgba(59,130,246,0.3);
-    border-radius: 2px;
-    color: #93C5FD;
-    background: rgba(59,130,246,0.07);
-    font-family: 'DM Mono', monospace;
-    transition: border-color 0.2s, background 0.2s, transform 0.15s;
-  }
-  .skill-tag:hover {
-    border-color: rgba(212,160,23,0.5);
-    background: rgba(212,160,23,0.1);
-    color: var(--gold-light);
-    transform: translateY(-2px);
-  }
-
-  /* ── EDUCATION & EXPERIENCE ── */
-  #education {
-    padding: 7rem 8vw;
-    background: rgba(17,24,39,0.6);
-  }
-  .timeline {
-    margin: 3rem auto 0;
-    max-width: 900px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: var(--border);
-    transform: translateX(-50%);
-  }
-  .timeline-item {
-    position: relative;
-    width: calc(50% - 2.5rem);
-    padding: 1.25rem 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: rgba(30,45,69,0.2);
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .timeline-item:hover {
-    border-color: rgba(212,160,23,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
-  }
-  .timeline-item:nth-child(odd) {
-    margin-right: auto;
-    text-align: right;
-  }
-  .timeline-item:nth-child(even) {
-    margin-left: auto;
-    text-align: left;
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 1.5rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 4px rgba(212,160,23,0.12);
-  }
-  .timeline-item:nth-child(odd)::before { right: -2.55rem; }
-  .timeline-item:nth-child(even)::before { left: -2.55rem; }
-  .timeline-item.current::before {
-    background: var(--blue);
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
-  }
-  .timeline-period {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.4rem;
-  }
-  .timeline-item.current .timeline-period { color: #93C5FD; }
-  .timeline-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-  .timeline-org {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-  .timeline-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 60ch;
-  }
-  .timeline-tag {
-    display: inline-block;
-    margin-top: 0.75rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.7rem;
-    border: 1px solid rgba(59,130,246,0.3);
-    border-radius: 2px;
-    color: #93C5FD;
-    background: rgba(59,130,246,0.07);
-  }
-
-  /* ── ACHIEVEMENTS ── */
-  #achievements { padding: 7rem 8vw; text-align: center; }
-  #achievements .section-label { justify-content: center; }
-  .achievements-grid {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: stretch;
-  }
-  .achievement-card {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.75rem 2rem;
-    background: rgba(10,15,30,0.5);
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-  }
-  .achievement-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(212,160,23,0.4);
-    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
-  }
-  .achievement-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.6rem;
-  }
-  .achievement-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-  }
-  .achievement-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  /* ── PROFESSIONAL STRENGTHS ── */
-  #strengths { padding: 7rem 8vw; text-align: center; }
-  #strengths .section-label { justify-content: center; }
-  .strengths-grid {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  .strength-card {
-    text-align: left;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.75rem;
-    background: rgba(30,45,69,0.2);
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-  }
-  .strength-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(212,160,23,0.4);
-    box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14);
-  }
-  .strength-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .strength-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .strength-list li {
-    font-size: 0.85rem;
-    color: var(--muted);
-    padding-left: 1.1rem;
-    position: relative;
-  }
-  .strength-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 6px;
-    height: 1px;
-    background: var(--blue);
-  }
-
-  /* ── ABOUT PHOTO ── */
-  .about-photo-wrap {
-    position: relative;
-    margin-bottom: 2.5rem;
-    max-width: 320px;
-  }
-  .about-photo-frame {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .about-photo-frame::before {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    opacity: 0.4;
-    transform: translate(8px, 8px);
-    z-index: -1;
-  }
-  .about-photo-frame img {
-    width: 100%;
-    border-radius: 4px;
-    display: block;
-    filter: grayscale(20%) contrast(1.05);
-  }
-  .about-photo-caption {
-    margin-top: 0.75rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  /* ── CERTIFICATIONS ── */
-  #certifications {
-    padding: 7rem 8vw;
-  }
-  .certs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-  .cert-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    background: rgba(30,45,69,0.2);
-    transition: transform 0.2s, border-color 0.2s;
-  }
-  .cert-card:hover { transform: translateY(-4px); border-color: rgba(212,160,23,0.4); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
-  .cert-issuer {
-    padding: 1.5rem 2rem 0;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .cert-name {
-    padding: 0.5rem 2rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-  }
-  .cert-desc {
-    padding: 0 2rem 1.5rem;
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.7;
-    flex: 1;
-  }
-  .cert-footer {
-    padding: 1rem 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: flex-end;
-  }
-  .cert-link {
-    font-size: 0.72rem;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.1em;
-    color: var(--blue);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .cert-link:hover { color: var(--gold); }
-
-  /* ── PROJECTS ── */
-  #projects { padding: 7rem 8vw; background: rgba(17,24,39,0.6); }
-  .projects-grid {
+  .app-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 16px 22px;
+    justify-items: center;
+    flex: 1;
+    max-width: 170px;
   }
-  .project-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    background: rgba(10,15,30,0.5);
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
+  .app-icon {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 6px; cursor: pointer; width: 64px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), var(--blue));
-    opacity: 0;
-    transition: opacity 0.2s;
+  /* Circular icons — Pixel style */
+  .app-icon .ai {
+    width: 54px; height: 54px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(40, 48, 68, 0.75);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.15s;
   }
-  .project-card:hover { border-color: rgba(212,160,23,0.4); transform: translateY(-4px); box-shadow: 0 12px 32px -8px rgba(59,130,246,0.22), 0 8px 24px -8px rgba(29,78,216,0.14); }
-  .project-card:hover::before { opacity: 1; }
-  .project-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 0.75rem;
+  :root[data-theme="light"] .app-icon .ai {
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 3px 12px rgba(14,100,180,0.12);
   }
-  .project-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+  .mobile-app-svg { width: 24px; height: 24px; color: var(--white); }
+  .mobile-dock-svg { width: 22px; height: 22px; color: var(--white); }
+  .mobile-header-svg { width: 18px; height: 18px; color: var(--white); }
+  :root[data-theme="light"] .mobile-app-svg,
+  :root[data-theme="light"] .mobile-dock-svg { color: #1E293B; }
+
+  .app-icon:active .ai { transform: scale(0.9); }
+  .app-icon .al {
+    font-size: 0.65rem; text-align: center; color: rgba(255,255,255,0.9);
+    max-width: 64px; line-height: 1.15; font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
-  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .project-tag {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 2px;
-    font-family: 'DM Mono', monospace;
-    background: rgba(59,130,246,0.1);
-    color: #93C5FD;
+  :root[data-theme="light"] .app-icon .al {
+    color: #1E293B;
+    text-shadow: none;
   }
 
-  /* ── MUSIC ── */
-  #music {
-    padding: 7rem 8vw;
+  /* Analog clock widget */
+  .widget-clock {
+    width: 118px; height: 118px;
+    background: rgba(25, 32, 48, 0.65);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 26px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  :root[data-theme="light"] .widget-clock {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(2,132,199,0.1);
+  }
+  .wc-face {
+    width: 94px; height: 94px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15);
     position: relative;
   }
-  .music-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
+  :root[data-theme="light"] .wc-face { border-color: rgba(30,41,59,0.15); }
+  .wc-center {
+    position: absolute; top: 50%; left: 50%;
+    width: 6px; height: 6px; margin: -3px 0 0 -3px;
+    border-radius: 50%; background: var(--gold); z-index: 5;
   }
-  .music-img-wrap { position: relative; }
-  .music-img-frame {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
+  .wc-hand {
+    position: absolute; bottom: 50%; left: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
   }
-  .music-img-frame img {
+  .wc-hour {
+    width: 3px; height: 22px; margin-left: -1.5px;
+    background: var(--white);
+  }
+  .wc-min {
+    width: 2px; height: 30px; margin-left: -1px;
+    background: var(--white); opacity: 0.85;
+  }
+  .wc-sec {
+    width: 1.5px; height: 34px; margin-left: -0.75px;
+    background: var(--blue);
+  }
+  :root[data-theme="light"] .wc-hour,
+  :root[data-theme="light"] .wc-min { background: #1E293B; }
+  .wc-num {
+    position: absolute; font-size: 0.55rem; color: var(--muted);
+    font-weight: 600;
+  }
+  .wc-num.n12 { top: 4px; left: 50%; transform: translateX(-50%); }
+  .wc-num.n3 { right: 6px; top: 50%; transform: translateY(-50%); }
+  .wc-num.n6 { bottom: 4px; left: 50%; transform: translateX(-50%); }
+  .wc-num.n9 { left: 6px; top: 50%; transform: translateY(-50%); }
+
+  /* Calendar + search row */
+  .home-bottom-row {
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  }
+  .widget-cal {
+    width: 52px; height: 48px; border-radius: 16px;
+    background: rgba(30, 40, 60, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  :root[data-theme="light"] .widget-cal {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(2,132,199,0.1);
+  }
+  .wcal-day { font-size: 0.58rem; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+  .wcal-num { font-size: 1.15rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+  :root[data-theme="light"] .wcal-num { color: #1E293B; }
+
+  .search-bar {
+    flex: 1; height: 48px; border-radius: 24px;
+    background: rgba(30, 40, 60, 0.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 12px 0 14px;
+  }
+  :root[data-theme="light"] .search-bar {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(2,132,199,0.1);
+  }
+  .search-bar:focus-within {
+    border-color: rgba(124, 92, 255, 0.45);
+    box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.12);
+  }
+  .search-g {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+    color: #fff; font-size: 0.7rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .search-input {
+    flex: 1; min-width: 0;
+    background: transparent; border: none; outline: none;
+    color: var(--white); font-size: 0.85rem;
+    font-family: inherit;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  :root[data-theme="light"] .search-input { color: #1E293B; }
+  .search-go {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: rgba(124, 92, 255, 0.25);
+    color: var(--white); font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .search-go:active { transform: scale(0.92); }
+  :root[data-theme="light"] .search-go {
+    background: rgba(109, 40, 217, 0.15);
+    color: #6D28D9;
+  }
+
+  /* Pixel dock — circular icons, pinned bottom, even spacing */
+  .dock {
+    margin-top: auto;
+    margin-bottom: 4px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 6px 4px 2px;
+    display: flex; justify-content: space-between;
+    align-items: center;
+    box-shadow: none;
+    backdrop-filter: none;
+    flex-shrink: 0;
     width: 100%;
-    display: block;
-    border-radius: 4px;
-    filter: sepia(15%) saturate(0.9);
   }
-  .music-img-frame::after {
-    content: '';
+  :root[data-theme="light"] .dock {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+  .dock .app-icon { width: auto; flex: 1; display: flex; justify-content: center; }
+  .dock .ai {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(40, 48, 68, 0.7);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  :root[data-theme="light"] .dock .ai {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(2,132,199,0.08);
+    box-shadow: 0 3px 10px rgba(14,100,180,0.1);
+  }
+
+  /* Gesture bar */
+  .nav-bar {
+    height: 16px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding-bottom: 6px; cursor: pointer;
+  }
+  .nav-pill {
+    width: 100px; height: 3.5px; border-radius: 4px;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+  }
+  :root[data-theme="light"] .nav-pill {
+    background: rgba(30, 41, 59, 0.28);
+  }
+
+  #mobileApps {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10,15,30,0.6) 0%, transparent 50%);
+    z-index: 200;
+    pointer-events: none;
   }
-  .tanpura-label {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
-    z-index: 2;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .music-ornament {
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    width: 60px;
-    height: 60px;
-    border-top: 1px solid var(--gold);
-    border-right: 1px solid var(--gold);
-    opacity: 0.4;
+  #mobileApps:has(.mobile-app) {
+    pointer-events: auto;
   }
 
-  .academy-card { margin-top: 1.75rem; padding: 1.75rem; }
-  .academy-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .academy-label::before {
-    content: '';
-    display: inline-block;
-    width: 1.25rem;
-    height: 1px;
-    background: var(--gold);
-  }
-  .academy-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 0.85rem;
-  }
-  .academy-desc {
-    font-size: 0.84rem;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-  }
-  .academy-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1.1rem;
-  }
-  .academy-meta-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: 0.78rem;
-    color: var(--white);
-  }
-  .academy-meta-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--blue);
-    flex-shrink: 0;
-  }
-  .academy-meta-row span:last-child { text-align: right; color: var(--muted); }
-
-  .music-certs {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .music-cert-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 1rem;
-    border-left: 1px solid var(--border);
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
-  .music-cert-row::before {
-    content: '♩';
-    color: var(--gold);
-    font-size: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  /* ── GALLERY ── */
-  #gallery { padding: 7rem 8vw; background: rgba(17,24,39,0.6); }
-  .gallery-tabs {
-    display: flex;
-    gap: 0;
-    margin-top: 2.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .tab-btn {
-    padding: 0.75rem 2rem;
-    background: none;
-    border: none;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-  .tab-content { display: none; padding-top: 2rem; }
-  .tab-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .gallery-item {
-    border-radius: 4px;
+  .mobile-app {
+    position: absolute; inset: 0;
+    background: var(--navy);
+    z-index: 100;
+    display: flex; flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+    pointer-events: auto;
+    border-radius: 20px 20px 0 0;
     overflow: hidden;
-    border: 1px solid var(--border);
-    position: relative;
-    aspect-ratio: 3/4;
-    background: var(--navy-light);
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.35);
   }
-  .gallery-item img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(10%);
-    transition: filter 0.3s, transform 0.3s;
+  .mobile-app.open { transform: translateY(0); border-radius: 0; }
+  .mapp-header {
+    height: 56px; flex-shrink: 0;
+    display: flex; align-items: center;
+    padding: 0 8px 0 4px; gap: 4px;
+    border-bottom: 1px solid var(--border);
+    background: var(--glass-strong);
+    backdrop-filter: blur(20px);
   }
-  .gallery-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
-  .gallery-placeholder {
-    width: 100%; height: 100%;
+  .mapp-back {
+    background: var(--hover-bg);
+    border: none;
+    color: var(--gold);
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .mapp-back:active { background: rgba(124, 92, 255, 0.2); }
+  .mapp-title {
+    flex: 1; font-weight: 600; font-size: 1.05rem;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mapp-body {
+    flex: 1; overflow-y: auto; padding: 20px 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mapp-body-chat {
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 0.5rem;
-    color: var(--muted);
-    font-size: 0.75rem;
-    font-family: 'DM Mono', monospace;
-    text-align: center;
-    padding: 1rem;
-    letter-spacing: 0.08em;
+    overflow: hidden;
   }
-  .gallery-placeholder span { font-size: 1.5rem; }
-
-  /* ── CONTACT ── */
-  #contact { padding: 7rem 8vw; }
-  .contact-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .contact-inner h2 { margin-bottom: 1rem; }
-  .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 3rem; }
-  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-  .contact-link {
+  .mapp-body-chat .chat-wrap { flex: 1; min-height: 0; }
+  .window-body:has(.chat-wrap) {
+    padding: 0;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.4rem;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ═══════════════════════════════════════
+     SHARED CONTENT STYLES
+  ═══════════════════════════════════════ */
+  .content-section h2 {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.5rem; margin-bottom: 0.75rem;
+    color: var(--gold);
+  }
+  .content-section h3 {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.15rem; margin: 1.25rem 0 0.5rem;
+  }
+  .content-section p {
+    color: var(--muted); font-size: 0.9rem; line-height: 1.75;
+    margin-bottom: 0.85rem;
+  }
+  .content-section em { color: var(--gold-light); font-style: italic; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .tag {
+    font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace; font-size: 0.7rem;
+    padding: 3px 10px; border-radius: 4px;
+    background: rgba(124, 92, 255, 0.14); color: #C4B5FD;
+    border: 1px solid rgba(124, 92, 255, 0.35);
+  }
+  .card {
+    background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 2px;
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 0.8rem;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: border-color 0.2s, color 0.2s;
+    border-radius: 8px; padding: 14px 16px;
+    margin-bottom: 12px;
   }
-  .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+  .card-title { font-weight: 600; margin-bottom: 4px; }
+  .card-sub { font-size: 0.78rem; color: var(--gold); margin-bottom: 6px; }
+  .card-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .stat-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin: 16px 0;
+  }
+  .stat {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Segoe UI Semibold', 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.6rem; color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
+  .link-btn {
+    display: inline-block; margin-top: 8px;
+    font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace; font-size: 0.72rem;
+    color: var(--blue); text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+  .link-btn:hover { color: var(--gold); }
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 2rem 8vw;
+  /* Terminal */
+  .terminal-body {
+    background: #0C0C0C; font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace;
+    font-size: 0.82rem; padding: 16px; height: 100%;
+    overflow-y: auto; line-height: 1.65;
+    color: #E2E8F0;
+  }
+  :root[data-theme="light"] .terminal-body {
+    background: #0F172A;
+  }
+  .term-line { margin-bottom: 2px; }
+  .term-prompt { color: var(--gold); }
+  .term-cmd { color: var(--white); }
+  .term-out { color: var(--muted); white-space: pre-wrap; }
+  .term-input-line {
+    display: flex; align-items: center; gap: 6px; margin-top: 4px;
+  }
+  .term-input {
+    flex: 1; background: transparent; border: none;
+    color: var(--white); font-family: 'Cascadia Code', 'DM Mono', Consolas, monospace;
+    font-size: 0.82rem; outline: none;
+  }
+
+  /* Chat app */
+  .chat-wrap {
+    display: flex; flex-direction: column; height: 100%;
+    min-height: 280px;
+  }
+  .chat-keybar {
+    display: flex; gap: 8px; align-items: center;
+    padding: 10px 12px; border-bottom: 1px solid var(--border);
+    background: var(--glass-light);
+    flex-shrink: 0;
+  }
+  .chat-keybar input {
+    flex: 1; min-width: 0;
+    background: var(--navy); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px;
+    color: var(--white); font-size: 0.78rem; outline: none;
+  }
+  .chat-keybar input:focus { border-color: var(--gold); }
+  .chat-keybar button {
+    border: none; border-radius: 8px; padding: 8px 12px;
+    background: var(--gold); color: #fff; font-size: 0.75rem;
+    font-weight: 600; cursor: pointer; white-space: nowrap;
+  }
+  .chat-keybar .chat-hint {
+    font-size: 0.68rem; color: var(--muted); width: 100%;
+    margin-top: 4px;
+  }
+  .chat-keybar-col { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .chat-msgs {
+    flex: 1; overflow-y: auto; padding: 14px 12px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .chat-bubble {
+    max-width: 88%; padding: 10px 12px; border-radius: 14px;
+    font-size: 0.86rem; line-height: 1.5; white-space: pre-wrap; word-break: break-word;
+  }
+  .chat-bubble.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #7C5CFF, #5B3FD9);
+    color: #fff; border-bottom-right-radius: 4px;
+  }
+  .chat-bubble.bot {
+    align-self: flex-start;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--white); border-bottom-left-radius: 4px;
+  }
+  .chat-bubble.sys {
+    align-self: center;
+    background: transparent; color: var(--muted);
+    font-size: 0.75rem; text-align: center; max-width: 95%;
+  }
+  .chat-bubble.err {
+    align-self: flex-start;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #FCA5A5;
+  }
+  .chat-input-row {
+    display: flex; gap: 8px; padding: 10px 12px;
     border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    font-size: 0.72rem;
-    color: rgba(148,163,184,0.5);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.08em;
+    background: var(--glass-strong);
+    flex-shrink: 0;
   }
-  .footer-gold { color: var(--gold); opacity: 0.7; }
+  .chat-input-row input {
+    flex: 1; background: var(--navy); border: 1px solid var(--border);
+    border-radius: 20px; padding: 10px 14px;
+    color: var(--white); font-size: 0.88rem; outline: none;
+  }
+  .chat-input-row input:focus { border-color: var(--gold); }
+  .chat-input-row button {
+    width: 40px; height: 40px; border-radius: 50%; border: none;
+    background: linear-gradient(135deg, #7C5CFF, #5B3FD9);
+    color: #fff; cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .chat-input-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .chat-typing { font-size: 0.78rem; color: var(--muted); padding: 0 4px; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; padding-top: 7rem; text-align: center; }
-    .hero-desc { margin: 0 auto 2.5rem; }
-    .hero-ctas { justify-content: center; }
-    .hero-image-wrap { order: -1; }
-    .hero-img-frame { width: min(280px, 80vw); }
-    #about { grid-template-columns: 1fr; gap: 3rem; }
-    .timeline::before { left: 1.25rem; }
-    .timeline-item { width: 100%; padding-left: 3.25rem; padding-right: 1.25rem; text-align: left !important; margin: 0 !important; }
-    .timeline-item:nth-child(odd)::before,
-    .timeline-item:nth-child(even)::before { left: -2.25rem; right: auto; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .achievements-grid { grid-template-columns: 1fr; }
-    .strengths-grid { grid-template-columns: 1fr; }
-    .certs-grid { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .music-inner { grid-template-columns: 1fr; }
-    .tab-content.active { grid-template-columns: repeat(2, 1fr); }
-
-    .nav-toggle { display: flex; }
-    .nav-links {
-      position: fixed;
-      top: 0; right: 0;
-      height: 100vh;
-      width: min(280px, 75vw);
-      background: rgba(10,15,30,0.97);
-      backdrop-filter: blur(16px);
-      border-left: 1px solid var(--border);
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem 2.5rem;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      z-index: 105;
-    }
-    .nav-links.open { transform: translateX(0); display: flex; }
-    .nav-links a { font-size: 0.95rem; }
-
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  /* Settings */
+  .settings-option {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .settings-option:last-child { border-bottom: none; }
+  .settings-option .label { font-size: 0.9rem; }
+  .settings-option .desc { font-size: 0.75rem; color: var(--muted); }
+  .radio-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid var(--muted);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .radio-dot.active { border-color: var(--gold); }
+  .radio-dot.active::after {
+    content: ''; width: 10px; height: 10px;
+    border-radius: 50%; background: var(--gold);
+  }
+  .settings-heading {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin: 1.5rem 0 0.5rem;
+  }
+  .settings-heading:first-of-type { margin-top: 0; }
+  .theme-toggle-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 0;
+  }
+  .theme-switch {
+    width: 46px; height: 26px; border-radius: 20px;
+    background: var(--navy-light); border: 1px solid var(--border);
+    position: relative; cursor: pointer; flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .theme-switch.on { background: var(--gold); }
+  .theme-switch .knob {
+    position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+  }
+  .theme-switch.on .knob { transform: translateX(20px); }
+  .wallpaper-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-top: 10px;
+  }
+  .wallpaper-swatch {
+    height: 56px; border-radius: 8px; cursor: pointer;
+    border: 2px solid transparent; position: relative;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    overflow: hidden; transition: transform 0.15s, border-color 0.15s;
+  }
+  .wallpaper-swatch:hover { transform: translateY(-2px); }
+  .wallpaper-swatch.active { border-color: var(--gold); }
+  .wallpaper-swatch .wp-name {
+    font-size: 0.6rem; padding: 3px 6px; background: rgba(0,0,0,0.45);
+    color: #fff; width: 100%;
+  }
+  .wallpaper-swatch .wp-check {
+    position: absolute; top: 4px; right: 5px; font-size: 0.8rem; color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  }
+  .wallpaper-swatch.wp-upload {
+    background: var(--glass-light);
+    border: 2px dashed var(--border);
+    align-items: center; justify-content: center;
+  }
+  .wallpaper-swatch.wp-upload .wp-name {
+    background: transparent; text-align: center; color: var(--muted);
+  }
+  .wallpaper-swatch.wp-upload.active { border-style: solid; }
+  .wallpaper-swatch.wp-upload.active .wp-name {
+    background: rgba(0,0,0,0.45); color: #fff; position: absolute; bottom: 0; left: 0;
   }
 
-  @media (max-width: 600px) {
-    nav { padding: 1rem 6vw; }
-    #hero { padding: 6.5rem 6vw 4rem; }
-    #about, #skills, #certifications, #projects, #music, #contact {
-      padding: 4rem 6vw;
-    }
-    .skills-grid { grid-template-columns: 1fr; }
-    .tab-content.active { grid-template-columns: 1fr; }
-    h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
-    .hero-img-frame { width: min(240px, 75vw); }
-    .contact-links { flex-direction: column; align-items: center; gap: 1rem; }
+  /* Contact links */
+  .contact-grid {
+    display: flex; flex-direction: column; gap: 10px; margin-top: 12px;
   }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none; color: var(--white);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-item:hover { border-color: var(--gold); background: var(--card-bg-hover); }
+  .contact-item .ci-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: rgba(124, 92, 255, 0.12);
+    color: var(--gold);
+  }
+  .contact-item .ci-icon svg {
+    width: 18px; height: 18px;
+    stroke: currentColor; fill: none;
+  }
+  .contact-item .ci-label { font-size: 0.85rem; }
+
+  /* Photo */
+  .profile-photo {
+    width: 100%; max-width: 220px; border-radius: 8px;
+    border: 1px solid var(--border);
+    display: block; margin: 0 auto 16px;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  /* Resize handle */
+  .resize-handle {
+    position: absolute; right: 0; bottom: 0;
+    width: 16px; height: 16px; cursor: se-resize;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,120,212,0.5) 50%);
+  }
+
+  /* Utility */
+  .hidden { display: none !important; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
+
 </style>
 </head>
 <body>
 
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<!-- BOOT -->
+<div id="boot-screen">
+  <div class="boot-logo">Shreyas OS</div>
+  <div class="boot-sub">Personal Operating System</div>
+  <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  <div class="boot-status" id="bootStatus">Initializing kernel…</div>
+</div>
 
-<!-- NAV -->
-<nav>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#achievements">Achievements</a></li>
-    <li><a href="#strengths">Strengths</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#music">Music</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<!-- DESKTOP LOGIN -->
+<div id="login-screen" class="hidden">
+  <div class="login-time">
+    <div class="big" id="loginClock">00:00</div>
+    <div class="date" id="loginDate"></div>
+  </div>
+  <img class="login-avatar" src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="Shreyas" />
+  <div class="login-name">Shreyas Gaonkar</div>
+  <div class="login-hint">AI Engineer · Classical Vocalist</div>
+  <button class="login-btn" id="loginBtn">Enter Desktop</button>
+</div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">My Self</div>
-    <h1>Shreyas<br/>Ranjit Gaonkar</h1>
-    <div class="hero-subtitle">Where Algorithms Meet Ragas.</div>
-    <p class="hero-desc">
-      Building intelligent systems through Machine Learning and Deep Learning,
-      while preserving the soul of Indian Classical Music. Two disciplines.
-      One pursuit of mastery.
-    </p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-secondary">Get in Touch</a>
+<!-- MOBILE LOCK -->
+<div id="lock-screen" class="hidden">
+  <div class="lock-time" id="lockClock">00:00</div>
+  <div class="lock-date" id="lockDate"></div>
+  <div style="margin-top:2.5rem;text-align:center;">
+    <img src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="" style="width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;" />
+    <div style="margin-top:0.75rem;font-weight:500;">Shreyas Gaonkar</div>
+  </div>
+  <div class="swipe-hint">Tap to unlock</div>
+</div>
+
+<!-- ════════════ DESKTOP ════════════ -->
+<div id="desktop">
+  <div class="desktop-wallpaper"></div>
+  <div class="calligraphy-hero desktop-hero">Welcome to My Digital Workspace.</div>
+
+  <div class="desktop-icons" id="desktopIcons">
+    <!-- filled by JS -->
+  </div>
+
+  <div id="windowsContainer"></div>
+
+  <div class="start-menu" id="startMenu">
+    <div class="start-header">
+      <img src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="" />
+      <div>
+        <div class="name">Shreyas Gaonkar</div>
+        <div class="role">AI / ML · Classical Vocalist</div>
+      </div>
+    </div>
+    <div class="start-apps" id="startApps"></div>
+    <div class="start-footer">
+      <button id="btnSettings">⚙ Settings</button>
+      <button id="btnShutdown">⏻ Lock</button>
     </div>
   </div>
-  <div class="hero-image-wrap">
-    <div class="image-card">
-      <div class="hero-img-frame">
-        <!-- Replace src with your actual photo path -->
-        <img src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="Shreyas Gaonkar" />
-        <div class="hero-dual-indicator">
-          AI / ML Engineering<br/>Indian Classical Music
+
+  <div class="taskbar">
+    <button class="start-btn" id="startBtn" title="Start">
+      <div class="win-logo"><span></span><span></span><span></span><span></span></div>
+    </button>
+    <div class="taskbar-search" id="desktopSearch">
+      <span class="ts-g">G</span>
+      <input type="search" id="desktopSearchInput" placeholder="Search Google" autocomplete="off" />
+    </div>
+    <div class="taskbar-apps" id="taskbarApps"></div>
+    <div class="taskbar-tray">
+      <div class="taskbar-batt" id="tbBatt" title="Battery">
+        <span class="batt-icon"><span class="batt-fill" id="tbBattFill" style="width:50%"></span></span>
+        <span id="tbBattPct">--%</span>
+      </div>
+      <div class="taskbar-clock">
+        <div id="tbTime">00:00</div>
+        <div id="tbDate" style="font-size:0.65rem;opacity:0.7;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ MOBILE ════════════ -->
+<div id="mobile">
+  <div class="status-bar">
+    <span id="mStatusTime">9:41</span>
+    <div class="status-icons">
+      <span class="sb-dot">●●●</span>
+      <span class="sb-wifi">◉</span>
+      <span class="sb-batt" id="mBattPct">--%</span>
+    </div>
+  </div>
+
+  <div class="home-screen" id="homeScreen">
+    <div class="widget-weather" id="widgetWeather">
+      <span class="ww-icon">✦</span>
+      <span class="ww-temp" id="homeHello">AI Engineer · Vocalist</span>
+      <span class="ww-right" id="wwDate"></span>
+    </div>
+
+    <div class="widget-media" id="widgetMedia">
+      <img class="wm-art" src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="" />
+      <div class="wm-info">
+        <div class="wm-title">Shreyas Gaonkar</div>
+        <div class="wm-sub">AI / ML · Classical Vocalist</div>
+      </div>
+      <button type="button" class="wm-btn" id="wmOpenAbout" aria-label="Open About">▶</button>
+    </div>
+
+    <div class="home-mid">
+      <div class="app-grid" id="appGrid"></div>
+      <div class="widget-clock">
+        <div class="wc-face">
+          <div class="wc-center"></div>
+          <div class="wc-hand wc-hour" id="wcHour"></div>
+          <div class="wc-hand wc-min" id="wcMin"></div>
+          <div class="wc-hand wc-sec" id="wcSec"></div>
+          <span class="wc-num n12">12</span>
+          <span class="wc-num n3">3</span>
+          <span class="wc-num n6">6</span>
+          <span class="wc-num n9">9</span>
         </div>
       </div>
     </div>
+
+    <div class="home-bottom-row">
+      <div class="widget-cal">
+        <div class="wcal-day" id="wcalDay">Mon</div>
+        <div class="wcal-num" id="wcalNum">1</div>
+      </div>
+      <div class="search-bar" id="mobileSearch">
+        <span class="search-g">G</span>
+        <input class="search-input" id="mobileSearchInput" type="search" placeholder="Search Google" autocomplete="off" enterkeyhint="search" />
+        <button type="button" class="search-go" id="mobileSearchGo" aria-label="Search">↵</button>
+      </div>
+    </div>
+
+    <div class="dock" id="dock"></div>
   </div>
-</section>
 
-<div class="raga-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-left">
-    <div class="section-label">About Me</div>
-    <h2>Two Worlds,<br/>One Mind</h2>
-    <div class="about-body">
-      <p>
-        I am an <em>Artificial Intelligence and Machine Learning</em> engineering student
-        at Bhausaheb Vartak Polytechnic, fascinated by how machines can learn, reason,
-        and create. I work with Computer Vision, Deep Learning, and Data Science
-        to build systems that make sense of the world.
-      </p>
-      <p>
-        Alongside technology, I am a <em>certified Indian Classical Singer and Musician</em>.
-        The discipline of raga—its structure, its infinite variations within constraint—
-        has shaped how I think about algorithms. Both demand patience, rigour, and
-        an ear for what doesn't quite fit.
-      </p>
-    </div>
-    <div class="about-stats">
-      <div class="stat-card">
-        <div class="stat-num">2+</div>
-        <div class="stat-label">AI Certifications</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Projects Built</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Ragas to Learn</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Internships</div>
-      </div>
-    </div>
-  </div>
-  <div class="about-right">
-    <div class="section-label">Dual Identity</div>
-    <div class="dual-identity">
-      <div class="identity-card">
-        <div class="identity-icon">⚙️</div>
-        <h3>The Engineer</h3>
-        <p>Designing neural networks, exploring data pipelines, and building
-        web experiences with React and modern JavaScript. Comfortable in
-        Python, PyTorch, and Scikit-Learn.</p>
-      </div>
-      <div class="identity-card">
-        <div class="identity-icon">🎵</div>
-        <h3>The Vocalist</h3>
-        <p>Trained in Indian Classical music with years of dedicated practice
-        on Tanpura. Music has taught me the discipline to master difficult
-        skills slowly and the creativity to improvise within structure.</p>
-      </div>
-      <div class="identity-card">
-        <div class="identity-icon">🔗</div>
-        <h3>The Connection</h3>
-        <p>A raga is a learning algorithm in acoustic form: vast pattern space,
-        strict rules, and beautiful emergent behaviour. Both fields reward
-        the same kind of obsession.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- EDUCATION & EXPERIENCE -->
-<section id="education">
-  <div class="section-label">Education &amp; Experience</div>
-  <h2>The Journey So Far</h2>
-  <div class="timeline">
-    <div class="timeline-item current">
-      <div class="timeline-period">2025 — Present</div>
-      <div class="timeline-title">AI/ML Intern</div>
-      <div class="timeline-org">Shri Alwin IT Solutions</div>
-      <div class="timeline-desc">
-        Working as an AI/ML Intern, applying machine learning concepts to
-        real-world problems, contributing to research-driven tasks and
-        gaining hands-on industry experience.
-      </div>
-      <span class="timeline-tag">Internship</span>
-    </div>
-    <div class="timeline-item current">
-      <div class="timeline-period">2024 — Present</div>
-      <div class="timeline-title">Diploma in Artificial Intelligence &amp; Machine Learning Engineering</div>
-      <div class="timeline-org">Vidyavardhini's Bhausaheb Vartak Polytechnic</div>
-      <div class="timeline-desc">
-        Currently pursuing a diploma focused on AI/ML engineering, covering
-        machine learning, data analysis, and practical project-based learning
-        alongside academic coursework.
-      </div>
-      <span class="timeline-tag">Currently Pursuing</span>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-period">SSC</div>
-      <div class="timeline-title">Secondary School Certificate</div>
-      <div class="timeline-org">S.S. Dhuri High School, Vasai</div>
-      <div class="timeline-desc">
-        Completed secondary education, building the academic foundation
-        for further studies in AI &amp; ML engineering.
-      </div>
-      <span class="timeline-tag">Completed</span>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-label">Achievements</div>
-  <h2>Milestones &amp; Recognition</h2>
-  <div class="achievements-grid">
-    <div class="achievement-card">
-      <div class="achievement-badge">Dec 2025 · Vasai Taluka Kala Krida</div>
-      <div class="achievement-title">Gold Medal — Singing (Under 18)</div>
-      <div class="achievement-desc">
-        Won the Gold Medal for Singing in the Under-18 category at the
-        Taluka-level competition, Vasai Taluka Kala Krida.
-      </div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-badge">Nov–Dec 2025 · ABGMV</div>
-      <div class="achievement-title">Madhyama Purna — Passed</div>
-      <div class="achievement-desc">
-        Successfully passed Madhyama Purna, a classical music examination
-        conducted worldwide by ABGMV (Akhil Bharatiya Gandharva Mahavidyalaya Mandal).
-      </div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-badge">School Years</div>
-      <div class="achievement-title">Multiple Music Prizes</div>
-      <div class="achievement-desc">
-        Won several prizes for music during school years, reflecting
-        consistent practice and a long-standing dedication to classical
-        vocal music alongside academics.
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- PROFESSIONAL STRENGTHS -->
-<section id="strengths">
-  <div class="section-label">Professional Strengths</div>
-  <h2>How I Work</h2>
-  <div class="strengths-grid">
-    <div class="strength-card">
-      <div class="strength-title">Research &amp; Problem Solving</div>
-      <ul class="strength-list">
-        <li>Research Skills</li>
-        <li>AI/ML Intern at Shri Alwin IT Solutions</li>
-        <li>Problem Solving</li>
-        <li>AI Solutions &amp; Real-World Thinking</li>
-      </ul>
-    </div>
-    <div class="strength-card">
-      <div class="strength-title">Collaboration &amp; Learning</div>
-      <ul class="strength-list">
-        <li>Team Collaboration</li>
-        <li>Bhausaheb Vartak Polytechnic</li>
-        <li>Internship Experience</li>
-        <li>Academic Projects &amp; Group Learning</li>
-      </ul>
-    </div>
-    <div class="strength-card">
-      <div class="strength-title">Communication</div>
-      <ul class="strength-list">
-        <li>Communication</li>
-        <li>Technical Discussions</li>
-        <li>Team Coordination &amp; Presentations</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="skills-header">
-    <div class="section-label">Technical Skills</div>
-    <h2>What I Work With</h2>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">AI &amp; Machine Learning</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">AI Chatbots</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Programming &amp; Libraries</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">Matplotlib</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Web Development</div>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">GitHub</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-label">Certifications</div>
-  <h2>Credentials</h2>
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-issuer">EY &amp; Microsoft</div>
-      <div class="cert-name">AI Skills Passport</div>
-      <div class="cert-desc">
-        Completed both general and employability sections of the AI Skills Passport
-        program, covering AI fundamentals, sustainability, business, and technology
-        modules. Jointly offered by Ernst &amp; Young and Microsoft.
-      </div>
-      <div class="cert-footer">
-        <a href="Ai.pdf" class="cert-link">View Certificate →</a>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">Coding Chaska</div>
-      <div class="cert-name">AI &amp; Future Technologies</div>
-      <div class="cert-desc">
-        Participated in the Workshop on "AI and Future Technologies" and completed
-        a hands-on lab session on building AI Chatbots, organized at Bhausaheb
-        Vartak Polytechnic for the AI &amp; ML Department on August 23, 2025.
-      </div>
-      <div class="cert-footer">
-        <a href="cc.pdf" class="cert-link">View Certificate →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2>Things I've Built</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-type">Web Development</div>
-      <div class="project-name">Swarsanskar Music Academy</div>
-      <p class="project-desc">
-        A fully responsive website for a classical music academy, combining
-        aesthetic design with content showcasing courses, faculty, and
-        Indian Classical Music heritage.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">JavaScript</span>
-        <span class="project-tag">Responsive</span>
-      </div>
-      <a href="https://shreyasrgaonkar.github.io/Swarsanskar/" class="cert-link" >View Project →</a>
-    </div>
-    <div class="project-card">
-      <div class="project-type">Web Development</div>
-      <div class="project-name">Matruchhaya Home Products</div>
-      <p class="project-desc">
-        Business website for a home products brand, designed for clear
-        product browsing and contact functionality with clean visual layout.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">HTML</span>
-        <span class="project-tag">CSS</span>
-        <span class="project-tag">JavaScript</span>
-        <span class="project-tag">UI Design</span>
-      </div>
-      <a href="https://shreyasrgaonkar.github.io/Matruchhaya/" class="cert-link" >View Project →</a>
-    </div>
-    <div class="project-card">
-      <div class="project-type">AI Development</div>
-      <div class="project-name">Portfolio Website</div>
-      <p class="project-desc">
-        This site — built with deliberate design choices that bridge classical
-        aesthetics and modern tech. Responsive, accessible, and a bit unusual.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">React</span>
-        <span class="project-tag">Design Systems</span>
-        <span class="project-tag">Responsive</span>
-      </div>
-      <a href="#" class="cert-link">View Project →</a>
-    </div>
-    <div class="project-card">
-      <div class="project-type">Desktop Application Development</div>
-      <div class="project-name">Virtual Mouse</div>
-      <p class="project-desc">
-        A computer vision based virtual mouse application
-        built with Python and OpenCV that allows users to
-        control the mouse using real-time hand gestures.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">OpenCV</span>
-        <span class="project-tag">Media Pipe</span>
-        <span class="project-tag">PyAutoGUI</span>
-      </div>
-      <a href="https://virtual-mouse-xi.vercel.app/" class="cert-link" >View Project →</a>
-    </div>
-    <div class="project-card" style="border-style: dashed; opacity: 0.6;">
-      <div class="project-type">Coming Soon</div>
-      <div class="project-name">Next Project</div>
-      <p class="project-desc">
-        Currently in development. Watch this space.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">Open Cv</span>
-        <span class="project-tag">Python</span>
-        <span class="project-tag">scikit-learn</span>
-      </div>
-      <a href="https://shreyasrgaonkar.github.io/shreyasrgaonkar-Secure-Examination-Ecosystem/" class="cert-link">View Project Proporsal→</a>
-    </div>
-    <div class="project-card" style="border-style: dashed; opacity: 0.6;">
-      <div class="project-type">Coming Soon</div>
-      <div class="project-name">Next Project</div>
-      <p class="project-desc">
-        Currently in development. Watch this space.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">ML</span>
-        <span class="project-tag">Python</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-<!-- MUSIC -->
-<section id="music">
-  <div class="music-inner">
-    <div class="music-img-wrap">
-      <div class="image-card">
-        <div class="music-img-frame">
-          <img src="https://i.postimg.cc/GhXZNwSq/Whats-App-Image-2026-06-13-at-10-05-44-AM.jpg" alt="Shreyas playing tanpura" />
-          <div class="tanpura-label">Tanpura · Indian Classical</div>
-        </div>
-      </div>
-      <div class="music-ornament"></div>
-
-      <div class="image-card academy-card">
-        <div class="academy-label">The Academy</div>
-        <h3 class="academy-title">Swarsanskar Music Academy</h3>
-        <p class="academy-desc">
-          Founded by my father and guru, Shri Ranjit Gaonkar, in 2008–09 at
-          Kandivli, the academy was later named Swarsanskar. Today, he continues
-          to run it with our family — now carried on from our home in Vasai.
-        </p>
-        <div class="academy-meta">
-          <div class="academy-meta-row">
-            <span class="academy-meta-label">Founded</span>
-            <span>2008–09 · Kandivli</span>
-          </div>
-          <div class="academy-meta-row">
-            <span class="academy-meta-label">Renamed</span>
-            <span>Swarsanskar</span>
-          </div>
-          <div class="academy-meta-row">
-            <span class="academy-meta-label">Today</span>
-            <span>Family-run · Vasai</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="music-right">
-      <div class="section-label">Music</div>
-      <h2>Indian Classical<br/>Vocalist</h2>
-      <div class="about-body">
-        <p>
-          Classical music is not just a hobby — it is a parallel practice of mastery.I am Student of Shri.Ranjit Dinkar Gaonkar So our Relation is Not on Of Father-Son but Teacher-Student. I have been learning Indian Classical Music for several years, and it has profoundly influenced my approach to problem-solving and creativity.
-          Raga exploration demands the same patience that debugging a neural network does.
-          Each taan is an improvisation; each gradient descent is a search for a minimum
-          neither of us can see in advance.
-        </p>
-        <p>
-          I Sing <em>Indian Classical Music Of Gwalior Gharana</em> and practice Indian Classical Vocal music,
-          having trained consistently across multiple ragas and compositions.
-        </p>
-      </div>
-      <div class="music-certs">
-        <div class="music-cert-row">Trained in Indian Classical Vocal Music</div>
-        <div class="music-cert-row">Classical Singer &amp; Practitioner</div>
-        <div class="music-cert-row">Founder context: Swarsanskar Music Academy website</div>
-        <div class="music-cert-row">Discipline developed over years of consistent riyaz</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="raga-divider"></div>
-
-
-<div class="raga-divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label" style="justify-content: center;">Contact</div>
-    <h2>Let's Connect</h2>
-    <p class="contact-sub">
-      Whether it's an AI project, a music collaboration, or just a conversation
-      about where these two worlds intersect — I'd love to hear from you.
-    </p>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/shreyas-gaonkar-262632411" class="contact-link" target="_blank">LinkedIn</a>
-      <a href="https://github.com/shreyasrgaonkar" class="contact-link" target="_blank">GitHub</a>
-      <a href="mailto:gaonkarshreyas021@gmail.com" class="contact-link">Email</a>
-      <a href="tel:+91 9172844879" class="contact-link">Phone</a>
-      <a href="https://www.instagram.com/swarshreyas.official/" class="contact-link" target="_blank">Instagram</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span>© 2026 Shreyas Gaonkar</span>
-  <span class="footer-gold">AI Engineer · Classical Vocalist · Vasai, Maharashtra</span>
-</footer>
+  <div class="nav-bar"><div class="nav-pill"></div></div>
+  <div id="mobileApps"></div>
+</div>
 
 <script>
-  function switchTab(tab) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    event.target.classList.add('active');
+/* ═══════════════════════════════════════════════════
+   SHREYAS OS — Core
+═══════════════════════════════════════════════════ */
+
+const APPS = [
+  {
+    id: 'about',
+    name: 'About',
+    icon: 'icons/about.svg',
+    color: '#3B82F6',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <img class="profile-photo" src="https://i.postimg.cc/P58th5DQ/Chat-GPT-Image-Jun-13-2026-09-02-07-AM.png" alt="Shreyas Gaonkar" />
+        <h2>Two Worlds, One Mind</h2>
+        <p>I am an <em>Artificial Intelligence and Machine Learning</em> engineering student at Bhausaheb Vartak Polytechnic, fascinated by how machines can learn, reason, and create. I work with Computer Vision, Deep Learning, and Data Science to build systems that make sense of the world.</p>
+        <p>Alongside technology, I am a <em>certified Indian Classical Singer and Musician</em>. The discipline of raga—its structure, its infinite variations within constraint—has shaped how I think about algorithms. Both demand patience, rigour, and an ear for what doesn't quite fit.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">2+</div><div class="stat-label">AI Certifications</div></div>
+          <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects Built</div></div>
+          <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Ragas to Learn</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Internships</div></div>
+        </div>
+        <h3>The Engineer</h3>
+        <p>Designing neural networks, exploring data pipelines, and building web experiences with modern JavaScript. Comfortable in Python, PyTorch, and Scikit-Learn.</p>
+        <h3>The Vocalist</h3>
+        <p>Trained in Indian Classical music with years of dedicated practice on Tanpura. Music has taught me the discipline to master difficult skills slowly and the creativity to improvise within structure.</p>
+        <h3>The Connection</h3>
+        <p>A raga is a learning algorithm in acoustic form: vast pattern space, strict rules, and beautiful emergent behaviour. Both fields reward the same kind of obsession.</p>
+      </div>
+    `
+  },
+  {
+    id: 'education',
+    name: 'Education',
+    icon: 'icons/education.svg',
+    color: '#8B5CF6',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>The Journey So Far</h2>
+        <div class="card">
+          <div class="card-sub">May - August 2025 — Completed · Internship</div>
+          <div class="card-title">AI/ML Intern</div>
+          <div class="card-desc">Shri Alwin IT Solutions — Applying machine learning concepts to real-world problems, contributing to research-driven tasks and gaining hands-on industry experience.</div>
+        </div>
+        <div class="card">
+          <div class="card-sub">2024 — Present · Currently Pursuing</div>
+          <div class="card-title">Diploma in Artificial Intelligence & Machine Learning Engineering</div>
+          <div class="card-desc">Vidyavardhini's Bhausaheb Vartak Polytechnic — Focused on AI/ML engineering, machine learning, data analysis, and practical project-based learning.</div>
+        </div>
+        <div class="card">
+          <div class="card-sub">SSC · Completed</div>
+          <div class="card-title">Secondary School Certificate</div>
+          <div class="card-desc">S.S. Dhuri High School, Vasai — Built the academic foundation for further studies in AI & ML engineering.</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'skills',
+    name: 'Skills',
+    icon: 'icons/skills.svg',
+    color: '#06B6D4',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>What I Work With</h2>
+        <h3>AI & Machine Learning</h3>
+        <div class="tag-row">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">AI Chatbots</span>
+          <span class="tag">Deep Learning</span>
+        </div>
+        <h3>Programming & Libraries</h3>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Matplotlib</span>
+        </div>
+        <h3>Web Development</h3>
+        <div class="tag-row">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">GitHub</span>
+        </div>
+        <h3>Professional Strengths</h3>
+        <div class="card">
+          <div class="card-title">Research & Problem Solving</div>
+          <div class="card-desc">Research skills · AI/ML Intern · Problem solving · AI solutions & real-world thinking</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Collaboration & Learning</div>
+          <div class="card-desc">Team collaboration · Polytechnic projects · Internship experience · Academic group learning</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Communication</div>
+          <div class="card-desc">Technical discussions · Team coordination · Presentations</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'projects',
+    name: 'Projects',
+    icon: 'icons/projects.svg',
+    color: '#F59E0B',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>Things I've Built</h2>
+
+        <div class="card">
+          <div class="card-sub">Web Development</div>
+          <div class="card-title">Swarsanskar Music Academy</div>
+          <div class="card-desc">A fully responsive website for a classical music academy, combining aesthetic design with content showcasing courses, faculty, and Indian Classical Music heritage.</div>
+          <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+          <a class="link-btn" href="https://shreyasrgaonkar.github.io/Swarsanskar/" target="_blank">View Project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-sub">Web Development</div>
+          <div class="card-title">Matruchhaya Home Products</div>
+          <div class="card-desc">Business website for a home products brand, designed for clear product browsing and contact functionality with clean visual layout.</div>
+          <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">UI Design</span></div>
+          <a class="link-btn" href="https://shreyasrgaonkar.github.io/Matruchhaya/" target="_blank">View Project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-sub">AI Development</div>
+          <div class="card-title">Portfolio Website</div>
+          <div class="card-desc">A portfolio experience built with deliberate design choices that bridge classical aesthetics and modern technology. Responsive, accessible, and intentionally unusual.</div>
+          <div class="tag-row"><span class="tag">React</span><span class="tag">Design Systems</span><span class="tag">Responsive</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-sub">Machine Learning</div>
+          <div class="card-title">Mini Projects</div>
+          <div class="card-desc">Built 12 AI & Machine Learning projects during a two-month internship, progressing from Python fundamentals and EDA to Machine Learning and Computer Vision through hands-on implementation of real-world concepts</div>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Media Pipe</span><span class="tag">PyAutoGUI</span></div>
+          <a class="link-btn" href="https://github.com/shreyasrgaonkar/machine-learning-mini-projects" target="_blank">View Project →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-sub">Desktop Application Development</div>
+          <div class="card-title">Virtual Mouse</div>
+          <div class="card-desc">A computer vision based virtual mouse application built with Python and OpenCV that allows users to control the mouse using real-time hand gestures.</div>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Media Pipe</span><span class="tag">PyAutoGUI</span></div>
+          <a class="link-btn" href="https://virtual-mouse-xi.vercel.app/" target="_blank">View Project →</a>
+        </div>
+
+        <div class="card" style="opacity:0.65;border-style:dashed;">
+          <div class="card-sub">Project Proposal</div>
+          <div class="card-title">Secure Examination Ecosystem</div>
+          <div class="card-desc">A proposed examination ecosystem concept currently in development.</div>
+          <div class="tag-row"><span class="tag">OpenCV</span><span class="tag">Python</span><span class="tag">scikit-learn</span></div>
+          <a class="link-btn" href="https://shreyasrgaonkar.github.io/shreyasrgaonkar-Secure-Examination-Ecosystem/" target="_blank">View Project Proposal →</a>
+        </div>
+
+        <div class="card" style="opacity:0.65;border-style:dashed;">
+          <div class="card-sub">Coming Soon</div>
+          <div class="card-title">Next Project</div>
+          <div class="card-desc">Currently in development. Watch this space.</div>
+          <div class="tag-row"><span class="tag">ML</span><span class="tag">Python</span></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'achievements',
+    name: 'Achievements',
+    icon: 'icons/achievements.svg',
+    color: '#EAB308',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>Milestones & Recognition</h2>
+        <div class="card">
+          <div class="card-sub">Dec 2025 · Vasai Taluka Kala Krida</div>
+          <div class="card-title">Gold Medal — Singing (Under 18)</div>
+          <div class="card-desc">Won the Gold Medal for Singing in the Under-18 category at the Taluka-level competition, Vasai Taluka Kala Krida.</div>
+        </div>
+        <div class="card">
+          <div class="card-sub">Nov–Dec 2025 · ABGMV</div>
+          <div class="card-title">Madhyama Purna — Passed</div>
+          <div class="card-desc">Successfully passed Madhyama Purna, a classical music examination conducted worldwide by ABGMV (Akhil Bharatiya Gandharva Mahavidyalaya Mandal).</div>
+        </div>
+        <div class="card">
+          <div class="card-sub">School Years</div>
+          <div class="card-title">Multiple Music Prizes</div>
+          <div class="card-desc">Won several prizes for music during school years, reflecting consistent practice and a long-standing dedication to classical vocal music alongside academics.</div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'certs',
+    name: 'Certifications',
+    icon: 'icons/certifications.svg',
+    color: '#10B981',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>Credentials</h2>
+        <div class="card">
+          <div class="card-sub">EY & Microsoft</div>
+          <div class="card-title">AI Skills Passport</div>
+          <div class="card-desc">Completed both general and employability sections of the AI Skills Passport program, covering AI fundamentals, sustainability, business, and technology modules. Jointly offered by Ernst & Young and Microsoft.</div>
+          <a class="link-btn" href="Ai.pdf" target="_blank">View Certificate →</a>
+        </div>
+        <div class="card">
+          <div class="card-sub">Coding Chaska</div>
+          <div class="card-title">AI & Future Technologies</div>
+          <div class="card-desc">Participated in the Workshop on "AI and Future Technologies" and completed a hands-on lab session on building AI Chatbots, organized at Bhausaheb Vartak Polytechnic for the AI & ML Department on August 23, 2025.</div>
+          <a class="link-btn" href="cc.pdf" target="_blank">View Certificate →</a>
+        </div>
+        <div class="card">
+          <div class="card-sub">Shri Alvin It Solutions</div>
+          <div class="card-title">12 week Internship</div>
+          <div class="card-desc">Successfully completed an AI & Machine Learning (AI-ML) Internship at ShriAlvin IT Solutions Pvt. Ltd. The internship provided practical exposure to the AI and Machine Learning domain and helped strengthen my technical learning and understanding of AI/ML concepts. The internship was completed on 14 August 2026.</div>
+          <a class="link-btn" href="aits.pdf" target="_blank">View Certificate →</a>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'music',
+    name: 'Music',
+    icon: 'icons/music.svg',
+    color: '#EC4899',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <img class="profile-photo" src="https://i.postimg.cc/GhXZNwSq/Whats-App-Image-2026-06-13-at-10-05-44-AM.jpg" alt="Shreyas playing tanpura" style="max-width:280px;" />
+        <h2>Indian Classical Vocalist</h2>
+        <p>Classical music is not just a hobby — it is a parallel practice of mastery. I am a student of Shri Ranjit Dinkar Gaonkar. Our relation is not only that of father-son but of teacher-student. I have been learning Indian Classical Music for several years, and it has profoundly influenced my approach to problem-solving and creativity.</p>
+        <p>Raga exploration demands the same patience that debugging a neural network does. Each taan is an improvisation; each gradient descent is a search for a minimum neither of us can see in advance.</p>
+        <p>I sing <em>Indian Classical Music of Gwalior Gharana</em> and practice consistently across multiple ragas and compositions.</p>
+        <h3>Swarsanskar Music Academy</h3>
+        <div class="card">
+          <div class="card-desc">Founded by my father and guru, Shri Ranjit Gaonkar, in 2008–09 at Kandivli. Later named Swarsanskar. Today it continues as a family-run academy from our home in Vasai.</div>
+          <div class="tag-row" style="margin-top:8px;">
+            <span class="tag">Founded 2008–09</span>
+            <span class="tag">Kandivli → Vasai</span>
+            <span class="tag">Family-run</span>
+          </div>
+          <a class="link-btn" href="https://shreyasrgaonkar.github.io/Swarsanskar/" target="_blank">Visit Academy Website →</a>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'contact',
+    name: 'Contact',
+    icon: 'icons/contact.svg',
+    color: '#6366F1',
+    desktop: true,
+    mobile: true,
+    content: `
+      <div class="content-section">
+        <h2>Let's Connect</h2>
+        <p>Whether it's an AI project, a music collaboration, or just a conversation about where these two worlds intersect — I'd love to hear from you.</p>
+        <div class="contact-grid">
+          <a class="contact-item" href="https://www.linkedin.com/in/shreyas-gaonkar-262632411" target="_blank" rel="noopener noreferrer">
+            <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+            <span class="ci-label">LinkedIn</span>
+          </a>
+          <a class="contact-item" href="https://github.com/shreyasrgaonkar" target="_blank" rel="noopener noreferrer">
+            <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.2-.4 6.5-1.6 6.5-7.2 0-1.6-.6-2.9-1.6-3.9.2-.5.6-2-.1-3.9 0 0-1.3-.4-4.2 1.5a14.4 14.4 0 0 0-7.2 0C4.3 2.4 3 2.8 3 2.8c-.7 1.9-.3 3.4-.1 3.9A5.6 5.6 0 0 0 1.3 10.6c0 5.6 3.3 6.8 6.5 7.2A4.5 4.5 0 0 0 7 20.8V22"/><path d="M9 18c-4.5 1.5-4.5-2.2-6-2.5"/></svg></span>
+            <span class="ci-label">GitHub</span>
+          </a>
+          <a class="contact-item" href="mailto:gaonkarshreyas021@gmail.com">
+            <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <span class="ci-label">gaonkarshreyas021@gmail.com</span>
+          </a>
+          <a class="contact-item" href="tel:+919172844879">
+            <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.6 2z"/></svg></span>
+            <span class="ci-label">+91 91728 44879</span>
+          </a>
+          <a class="contact-item" href="https://www.instagram.com/swarshreyas.official/" target="_blank" rel="noopener noreferrer">
+            <span class="ci-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg></span>
+            <span class="ci-label">@swarshreyas.official</span>
+          </a>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 'chat',
+    name: 'Chat',
+    icon: 'icons/ai.svg',
+    color: '#7C5CFF',
+    desktop: true,
+    mobile: true,
+    isChat: true
+  },
+  {
+    id: 'terminal',
+    name: 'Terminal',
+    icon: 'icons/terminal.svg',
+    color: '#22C55E',
+    desktop: true,
+    mobile: false,
+    isTerminal: true
+  },
+  {
+    id: 'settings',
+    name: 'Settings',
+    icon: 'icons/settings.svg',
+    color: '#64748B',
+    desktop: true,
+    mobile: true,
+    isSettings: true
+  }
+];
+
+const ICONS = {
+  about: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 20c.7-3.2 3.1-5 7-5s6.3 1.8 7 5"/></svg>`,
+  achievements: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0Z"/><path d="M8 6H5v2a4 4 0 0 0 4 4M16 6h3v2a4 4 0 0 1-4 4M12 13v4M8 20h8M9 17h6"/></svg>`,
+  ai: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4Z"/><path d="M19 14l.7 2.3L22 17l-2.3.7L19 20l-.7-2.3L16 17l2.3-.7Z"/></svg>`,
+  certifications: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-3-6 3Z"/><path d="m9 10 2 2 4-4"/></svg>`,
+  contact: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>`,
+  education: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8 9-4 9 4-9 4-9-4Z"/><path d="M6 10v5c3 2.5 9 2.5 12 0v-5M21 8v7"/></svg>`,
+  home: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg>`,
+  music: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>`,
+  projects: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h4l2 2h7A2.5 2.5 0 0 1 21 9.5v8A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5Z"/><path d="m9 14 2-2 2 2 2-2"/></svg>`,
+  resume: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>`,
+  settings: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg>`,
+  skills: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a5 5 0 0 0-3 9.1V15h6v-2.9A5 5 0 0 0 12 3Z"/><path d="M9 18h6M10 21h4"/></svg>`,
+  terminal: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg>`,
+};
+
+/* ── SVG icon helper ── */
+function appIcon(app, className = '') {
+  if (!app || !app.icon) return '';
+  // key = filename without folder/extension, e.g. 'icons/about.svg' -> 'about'
+  const key = String(app.icon).split('/').pop().replace(/\.svg$/i, '');
+  const markup = ICONS[key];
+  if (!markup) return '';
+  return `<span class="svg-icon ${className}" role="img" aria-label="${app.name || ''}">${markup}</span>`;
+}
+
+/* ── State ── */
+let mode = null; // 'desktop' | 'mobile'
+let openWindows = {};
+let zCounter = 100;
+let focusedWin = null;
+let isDragging = false;
+let dragOffset = { x: 0, y: 0 };
+let dragEl = null;
+
+/* ── Icons shown on the desktop itself (Start menu still lists everything) ── */
+const DESKTOP_ICON_IDS = ['about', 'education', 'skills', 'contact'];
+
+/* ── Theme (light / dark) ── */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+}
+function getTheme() {
+  return localStorage.getItem('shreyasos-theme') || 'dark';
+}
+function setTheme(theme) {
+  localStorage.setItem('shreyasos-theme', theme);
+  applyTheme(theme);
+  // Re-apply wallpaper so light/dark variants resolve correctly
+  applyWallpaper(getWallpaper());
+}
+applyTheme(getTheme());
+
+/* ── Wallpaper ── */
+const WALLPAPERS = {
+  rgb: {
+    name: 'RGB Core',
+    swatch: 'linear-gradient(160deg, #0B0E14, #00E5FF, #7C5CFF)',
+    value: `radial-gradient(circle at 12% 18%, rgba(0, 229, 255, 0.16) 0%, transparent 42%),
+      radial-gradient(circle at 88% 82%, rgba(124, 92, 255, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(255, 46, 159, 0.07) 0%, transparent 55%),
+      linear-gradient(160deg, rgba(8, 10, 18, 0.85) 0%, rgba(12, 15, 28, 0.72) 50%, rgba(6, 8, 16, 0.92) 100%),
+      url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?fm=jpg&q=80&w=2400&auto=format&fit=crop') center / cover no-repeat`
+  },
+  cyber: {
+    name: 'Cyber Purple',
+    swatch: 'linear-gradient(160deg, #0F0A1A, #7C5CFF)',
+    value: `radial-gradient(circle at 20% 15%, rgba(124, 92, 255, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 80% 85%, rgba(0, 229, 255, 0.12) 0%, transparent 40%),
+      linear-gradient(160deg, #0A0814 0%, #15102A 45%, #0D0A1A 100%)`
+  },
+  neon: {
+    name: 'Neon Cyan',
+    swatch: 'linear-gradient(160deg, #061218, #00E5FF)',
+    value: `radial-gradient(circle at 15% 25%, rgba(0, 229, 255, 0.2) 0%, transparent 48%),
+      radial-gradient(circle at 85% 70%, rgba(124, 92, 255, 0.1) 0%, transparent 40%),
+      linear-gradient(160deg, #050C12 0%, #0A1620 50%, #061018 100%)`
+  },
+  aurora: {
+    name: 'Aurora',
+    swatch: 'linear-gradient(160deg, #0A0E1A, #00E5FF, #FF2E9F)',
+    value: `radial-gradient(circle at 25% 20%, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 75% 80%, rgba(255, 46, 159, 0.12) 0%, transparent 42%),
+      radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.08) 0%, transparent 50%),
+      linear-gradient(160deg, #080B14 0%, #101525 50%, #0A0D16 100%)`
+  },
+  graphite: {
+    name: 'Graphite',
+    swatch: 'linear-gradient(160deg, #12151C, #2A303C)',
+    value: `radial-gradient(circle at 12% 10%, rgba(255,255,255,0.05) 0%, transparent 32%),
+      linear-gradient(160deg, #0E1118 0%, #181C26 45%, #12151C 100%)`
+  },
+  mono: {
+    name: 'Deep Void',
+    swatch: 'linear-gradient(160deg, #06080C, #141820)',
+    value: `radial-gradient(circle at 50% 30%, rgba(124,92,255,0.06) 0%, transparent 50%),
+      linear-gradient(160deg, #06080C 0%, #0E121A 50%, #06080C 100%)`
+  }
+};
+function applyWallpaper(id) {
+  if (id === 'custom') {
+    const img = localStorage.getItem('shreyasos-custom-wallpaper-img');
+    if (img) {
+      const custom = `url("${img}") center / cover no-repeat`;
+      document.documentElement.style.setProperty('--wallpaper', custom);
+      document.documentElement.style.setProperty('--desktop-wallpaper', custom);
+      return;
+    }
+    id = 'rgb';
   }
 
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
+  // In light mode, clear inline overrides so the CSS light-theme wallpaper variables take effect
+  if (getTheme() === 'light') {
+    document.documentElement.style.removeProperty('--wallpaper');
+    document.documentElement.style.removeProperty('--desktop-wallpaper');
+    return;
+  }
+
+  const wp = WALLPAPERS[id] || WALLPAPERS.rgb;
+  document.documentElement.style.setProperty('--wallpaper', wp.value);
+  document.documentElement.style.setProperty('--desktop-wallpaper', wp.value);
+}
+function getWallpaper() {
+  const id = localStorage.getItem('shreyasos-wallpaper');
+  if (id === 'custom' && localStorage.getItem('shreyasos-custom-wallpaper-img')) return 'custom';
+  return WALLPAPERS[id] ? id : 'rgb';
+}
+function setWallpaper(id) {
+  localStorage.setItem('shreyasos-wallpaper', id);
+  applyWallpaper(id);
+}
+function setCustomWallpaper(dataUrl) {
+  try {
+    localStorage.setItem('shreyasos-custom-wallpaper-img', dataUrl);
+    setWallpaper('custom');
+  } catch (e) {
+    alert('Image too large to save. Try a smaller photo.');
+  }
+}
+applyWallpaper(getWallpaper());
+
+/* ── Boot ── */
+const bootMessages = [
+  'Initializing kernel…',
+  'Loading modules…',
+  'Mounting /home/shreyas…',
+  'Starting services…',
+  'Ready.'
+];
+let bootIdx = 0;
+const bootStatusEl = document.getElementById('bootStatus');
+const bootInterval = setInterval(() => {
+  bootIdx++;
+  if (bootIdx < bootMessages.length) {
+    bootStatusEl.textContent = bootMessages[bootIdx];
+  } else {
+    clearInterval(bootInterval);
+  }
+}, 450);
+
+setTimeout(() => {
+  document.getElementById('boot-screen').classList.add('hidden');
+  detectAndLaunch();
+}, 3200);
+
+function detectAndLaunch() {
+  const prefer = localStorage.getItem('shreyasos-mode');
+  if (prefer === 'desktop' || prefer === 'mobile') {
+    mode = prefer;
+  } else {
+    mode = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+  }
+  if (mode === 'desktop') {
+    document.getElementById('login-screen').classList.remove('hidden');
+    updateClocks();
+  } else {
+    document.getElementById('lock-screen').classList.remove('hidden');
+    updateClocks();
+  }
+}
+
+/* ── Clocks ── */
+function updateClocks() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2, '0');
+  const m = now.getMinutes().toString().padStart(2, '0');
+  const timeStr = `${h}:${m}`;
+  const dateStr = now.toLocaleDateString('en-IN', { weekday: 'long', month: 'long', day: 'numeric' });
+  const shortDate = now.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+
+  const ids = ['loginClock', 'lockClock', 'tbTime', 'mStatusTime'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = timeStr;
   });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
+  const loginDate = document.getElementById('loginDate');
+  if (loginDate) loginDate.textContent = dateStr;
+  const lockDate = document.getElementById('lockDate');
+  if (lockDate) lockDate.textContent = dateStr;
+  const tbDate = document.getElementById('tbDate');
+  if (tbDate) tbDate.textContent = shortDate;
+
+  const hour = now.getHours();
+  let greet = 'Good evening';
+  if (hour < 12) greet = 'Good morning';
+  else if (hour < 17) greet = 'Good afternoon';
+  const hello = document.getElementById('homeHello');
+  if (hello) hello.textContent = `${greet}, Shreyas`;
+
+  const wwDate = document.getElementById('wwDate');
+  if (wwDate) wwDate.textContent = shortDate;
+
+  const wcalDay = document.getElementById('wcalDay');
+  const wcalNum = document.getElementById('wcalNum');
+  if (wcalDay) wcalDay.textContent = now.toLocaleDateString('en', { weekday: 'short' });
+  if (wcalNum) wcalNum.textContent = String(now.getDate());
+
+  // Analog clock hands
+  const s = now.getSeconds();
+  const mins = now.getMinutes();
+  const hrs = now.getHours() % 12;
+  const hourEl = document.getElementById('wcHour');
+  const minEl = document.getElementById('wcMin');
+  const secEl = document.getElementById('wcSec');
+  if (hourEl) hourEl.style.transform = `rotate(${(hrs * 30) + (mins * 0.5)}deg)`;
+  if (minEl) minEl.style.transform = `rotate(${mins * 6}deg)`;
+  if (secEl) secEl.style.transform = `rotate(${s * 6}deg)`;
+}
+setInterval(updateClocks, 1000);
+
+/* ── Real battery % (desktop + mobile) ── */
+function applyBatteryLevel(level, charging) {
+  const pct = Math.round((level || 0) * 100);
+  const mEl = document.getElementById('mBattPct');
+  const tEl = document.getElementById('tbBattPct');
+  const fill = document.getElementById('tbBattFill');
+  const tray = document.getElementById('tbBatt');
+  const label = pct + '%' + (charging ? ' ⚡' : '');
+  if (mEl) mEl.textContent = label;
+  if (tEl) tEl.textContent = label;
+  if (fill) fill.style.width = Math.max(4, pct) + '%';
+  if (tray) {
+    tray.classList.toggle('low', pct <= 20 && !charging);
+    tray.title = charging ? ('Charging · ' + pct + '%') : ('Battery · ' + pct + '%');
+  }
+}
+
+function initBattery() {
+  if (!navigator.getBattery) {
+    applyBatteryLevel(0.84, false);
+    return;
+  }
+  navigator.getBattery().then((batt) => {
+    const sync = () => applyBatteryLevel(batt.level, batt.charging);
+    sync();
+    batt.addEventListener('levelchange', sync);
+    batt.addEventListener('chargingchange', sync);
+  }).catch(() => applyBatteryLevel(0.84, false));
+}
+initBattery();
+
+/* ── Google search (desktop + mobile) ── */
+function runGoogleSearch(query) {
+  const q = (query || '').trim();
+  if (!q) return false;
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank', 'noopener,noreferrer');
+  return true;
+}
+
+(function bindDesktopSearch() {
+  const input = document.getElementById('desktopSearchInput');
+  if (!input) return;
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (runGoogleSearch(input.value)) input.value = '';
+    }
+  });
+})();
+
+/* ── Login / Unlock ── */
+document.getElementById('loginBtn').addEventListener('click', () => {
+  document.getElementById('login-screen').classList.add('hidden');
+  launchDesktop();
+});
+
+document.getElementById('lock-screen').addEventListener('click', () => {
+  document.getElementById('lock-screen').classList.add('hidden');
+  launchMobile();
+});
+
+/* ═══════════════════════════════════════
+   DESKTOP
+═══════════════════════════════════════ */
+function launchDesktop() {
+  mode = 'desktop';
+  document.getElementById('desktop').classList.add('active');
+  document.getElementById('mobile').classList.remove('active');
+  buildDesktopIcons();
+  buildStartMenu();
+  updateClocks();
+}
+
+function buildDesktopIcons() {
+  const container = document.getElementById('desktopIcons');
+  container.innerHTML = '';
+  DESKTOP_ICON_IDS.map(id => APPS.find(a => a.id === id)).filter(Boolean).forEach(app => {
+    const el = document.createElement('div');
+    el.className = 'desk-icon';
+    el.innerHTML = `<div class="icon-img">${appIcon(app, 'desktop-app-svg')}</div><div class="icon-label">${app.name}</div>`;
+    el.addEventListener('dblclick', () => openWindow(app.id));
+    el.addEventListener('click', (e) => {
+      // single click select visual only
     });
+    container.appendChild(el);
   });
+}
 
-  // Cursor-following glow circle
-  const cursorGlow = document.getElementById('cursorGlow');
-  let glowX = 0, glowY = 0, mouseX = 0, mouseY = 0;
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorGlow.classList.add('active');
+function buildStartMenu() {
+  const container = document.getElementById('startApps');
+  container.innerHTML = '';
+  APPS.filter(a => a.desktop).forEach(app => {
+    const el = document.createElement('div');
+    el.className = 'start-app';
+    el.innerHTML = `<div class="sa-icon">${appIcon(app, 'start-app-svg')}</div><div class="sa-name">${app.name}</div>`;
+    el.addEventListener('click', () => {
+      openWindow(app.id);
+      closeStartMenu();
+    });
+    container.appendChild(el);
   });
-  window.addEventListener('mouseleave', () => cursorGlow.classList.remove('active'));
-  function animateGlow() {
-    glowX += (mouseX - glowX) * 0.12;
-    glowY += (mouseY - glowY) * 0.12;
-    cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(animateGlow);
+}
+
+document.getElementById('startBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  document.getElementById('startMenu').classList.toggle('open');
+  document.getElementById('startBtn').classList.toggle('active');
+});
+document.getElementById('btnSettings').addEventListener('click', () => {
+  openWindow('settings');
+  closeStartMenu();
+});
+document.getElementById('btnShutdown').addEventListener('click', () => {
+  closeStartMenu();
+  // lock
+  document.getElementById('desktop').classList.remove('active');
+  document.getElementById('login-screen').classList.remove('hidden');
+  // close all windows
+  Object.keys(openWindows).forEach(id => closeWindow(id));
+});
+
+function closeStartMenu() {
+  document.getElementById('startMenu').classList.remove('open');
+  document.getElementById('startBtn').classList.remove('active');
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#startMenu') && !e.target.closest('#startBtn')) {
+    closeStartMenu();
   }
-  animateGlow();
+});
 
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+function openWindow(appId) {
+  const app = APPS.find(a => a.id === appId);
+  if (!app) return;
+
+  if (openWindows[appId]) {
+    focusWindow(appId);
+    return;
+  }
+
+  const win = document.createElement('div');
+  win.className = 'window';
+  win.dataset.app = appId;
+  win.style.width = app.isChat ? '420px' : (app.isTerminal ? '560px' : '480px');
+  win.style.height = app.isChat ? '520px' : (app.isTerminal ? '380px' : '420px');
+  win.style.left = (80 + Object.keys(openWindows).length * 30) + 'px';
+  win.style.top = (60 + Object.keys(openWindows).length * 28) + 'px';
+
+  let bodyHTML = '';
+  if (app.isTerminal) {
+    bodyHTML = `<div class="terminal-body" id="termBody">
+      <div class="term-line"><span class="term-prompt">shreyas@os:~$</span> <span class="term-cmd">welcome</span></div>
+      <div class="term-out">Shreyas OS Terminal v1.0
+Type 'help' for available commands.
+</div>
+      <div class="term-input-line">
+        <span class="term-prompt">shreyas@os:~$</span>
+        <input class="term-input" id="termInput" autocomplete="off" spellcheck="false" />
+      </div>
+    </div>`;
+  } else if (app.isChat) {
+    bodyHTML = buildChatContent();
+  } else if (app.isSettings) {
+    bodyHTML = buildSettingsContent();
+  } else {
+    bodyHTML = app.content;
+  }
+
+  win.innerHTML = `
+    <div class="window-titlebar">
+      <div class="window-title">${appIcon(app, 'window-app-svg')}<span>${app.name}</span></div>
+      <div class="window-controls">
+        <button class="win-btn win-min" data-action="min" title="Minimize"></button>
+        <button class="win-btn win-max" data-action="max" title="Maximize"></button>
+        <button class="win-btn win-close" data-action="close" title="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">${bodyHTML}</div>
+    <div class="resize-handle"></div>
+  `;
+
+  document.getElementById('windowsContainer').appendChild(win);
+  openWindows[appId] = win;
+
+  // animate in
+  requestAnimationFrame(() => win.classList.add('open'));
+
+  // events
+  win.querySelector('[data-action="close"]').addEventListener('click', () => closeWindow(appId));
+  win.querySelector('[data-action="min"]').addEventListener('click', () => minimizeWindow(appId));
+  win.querySelector('[data-action="max"]').addEventListener('click', () => maximizeWindow(appId));
+
+  // drag
+  const titlebar = win.querySelector('.window-titlebar');
+  titlebar.addEventListener('mousedown', (e) => {
+    if (e.target.closest('.win-btn')) return;
+    isDragging = true;
+    dragEl = win;
+    dragOffset.x = e.clientX - win.offsetLeft;
+    dragOffset.y = e.clientY - win.offsetTop;
+    focusWindow(appId);
+  });
+
+  // resize
+  const handle = win.querySelector('.resize-handle');
+  let resizing = false;
+  handle.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    resizing = true;
+    const startX = e.clientX, startY = e.clientY;
+    const startW = win.offsetWidth, startH = win.offsetHeight;
+    const onMove = (ev) => {
+      if (!resizing) return;
+      win.style.width = Math.max(320, startW + (ev.clientX - startX)) + 'px';
+      win.style.height = Math.max(240, startH + (ev.clientY - startY)) + 'px';
+    };
+    const onUp = () => {
+      resizing = false;
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    };
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+
+  win.addEventListener('mousedown', () => focusWindow(appId));
+
+  // terminal logic
+  if (app.isTerminal) {
+    setTimeout(() => {
+      const input = document.getElementById('termInput');
+      if (input) {
+        input.focus();
+        input.addEventListener('keydown', handleTerminalInput);
+      }
+    }, 100);
+  }
+
+  // settings handlers
+  if (app.isSettings) {
+    bindSettings(win);
+  }
+
+  // chat handlers
+  if (app.isChat) {
+    const wb = win.querySelector('.window-body');
+    if (wb) {
+      wb.style.padding = '0';
+      wb.style.display = 'flex';
+      wb.style.flexDirection = 'column';
+      wb.style.overflow = 'hidden';
+    }
+    bindChat(win);
+  }
+
+  focusWindow(appId);
+  updateTaskbar();
+}
+
+function closeWindow(appId) {
+  const win = openWindows[appId];
+  if (!win) return;
+  win.classList.remove('open');
+  setTimeout(() => {
+    win.remove();
+    delete openWindows[appId];
+    updateTaskbar();
+  }, 200);
+}
+
+function minimizeWindow(appId) {
+  const win = openWindows[appId];
+  if (!win) return;
+  win.style.display = 'none';
+  updateTaskbar();
+}
+
+function maximizeWindow(appId) {
+  const win = openWindows[appId];
+  if (!win) return;
+  if (win.dataset.max === '1') {
+    win.style.left = win.dataset.prevLeft;
+    win.style.top = win.dataset.prevTop;
+    win.style.width = win.dataset.prevW;
+    win.style.height = win.dataset.prevH;
+    win.dataset.max = '0';
+  } else {
+    win.dataset.prevLeft = win.style.left;
+    win.dataset.prevTop = win.style.top;
+    win.dataset.prevW = win.style.width;
+    win.dataset.prevH = win.style.height;
+    win.style.left = '8px';
+    win.style.top = '8px';
+    win.style.width = 'calc(100% - 16px)';
+    win.style.height = 'calc(100% - 68px)';
+    win.dataset.max = '1';
+  }
+}
+
+function focusWindow(appId) {
+  Object.values(openWindows).forEach(w => w.classList.remove('focused'));
+  const win = openWindows[appId];
+  if (win) {
+    win.classList.add('focused');
+    win.style.display = '';
+    zCounter++;
+    win.style.zIndex = zCounter;
+    focusedWin = appId;
+  }
+  updateTaskbar();
+}
+
+function updateTaskbar() {
+  const bar = document.getElementById('taskbarApps');
+  bar.innerHTML = '';
+  Object.keys(openWindows).forEach(id => {
+    const app = APPS.find(a => a.id === id);
+    if (!app) return;
+    const btn = document.createElement('button');
+    btn.className = 'task-app' + (focusedWin === id && openWindows[id].style.display !== 'none' ? ' active' : '');
+    btn.innerHTML = `<span class="dot"></span>${appIcon(app, 'task-app-svg')}<span>${app.name}</span>`;
+    btn.addEventListener('click', () => {
+      if (openWindows[id].style.display === 'none') {
+        openWindows[id].style.display = '';
+      }
+      focusWindow(id);
+    });
+    bar.appendChild(btn);
+  });
+}
+
+// global drag
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging || !dragEl) return;
+  dragEl.style.left = Math.max(0, e.clientX - dragOffset.x) + 'px';
+  dragEl.style.top = Math.max(0, e.clientY - dragOffset.y) + 'px';
+});
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  dragEl = null;
+});
+
+/* Terminal */
+const TERM_CMDS = {
+  help: `Available commands:
+  help       - show this message
+  about      - short bio
+  skills     - technical skills
+  projects   - list projects
+  music      - classical music info
+  contact    - contact details
+  clear      - clear terminal
+  whoami     - identity
+  neofetch   - system info
+  date       - current date/time`,
+  about: `Shreyas Ranjit Gaonkar
+AI/ML Engineering student at Bhausaheb Vartak Polytechnic.
+Indian Classical Vocalist (Gwalior Gharana).
+Where algorithms meet ragas.`,
+  skills: `AI & ML: Machine Learning, Computer Vision, AI Chatbots, Deep Learning
+Languages: Python, JavaScript, HTML, CSS
+Libraries: NumPy, Pandas, PyTorch, Matplotlib
+Tools: GitHub`,
+  projects: `1. Swarsanskar Music Academy  — shreyasrgaonkar.github.io/Swarsanskar/
+2. Matruchhaya Home Products  — shreyasrgaonkar.github.io/Matruchhaya/
+3. Portfolio Website          — current portfolio experience
+4. Virtual Mouse              — virtual-mouse-xi.vercel.app/
+5. Secure Examination Ecosystem — project proposal
+6. Shreyas OS Portfolio        — this experience
+7. 12 Mini Projects in Python   — Ml Based Projects`,
+  music: `Indian Classical Vocalist · Gwalior Gharana
+Student of Shri Ranjit Dinkar Gaonkar
+Madhyama Purna (ABGMV) · Gold Medal (Vasai Taluka Kala Krida)
+Swarsanskar Music Academy (family-run, Vasai)`,
+  contact: `LinkedIn : linkedin.com/in/shreyas-gaonkar-262632411
+GitHub   : github.com/shreyasrgaonkar
+Email    : gaonkarshreyas021@gmail.com
+Phone    : +91 91728 44879
+Instagram: @swarshreyas.official`,
+  whoami: 'shreyas — AI Engineer & Classical Vocalist',
+  neofetch: `          shreyas@os
+           -----------
+OS        Shreyas OS 1.0
+Host      Personal Portfolio
+Kernel    JavaScript
+Shell     terminal.js
+Theme     Navy + Gold
+Uptime    ∞ riyaz sessions
+`,
+  date: () => new Date().toString(),
+  clear: 'CLEAR'
+};
+
+function handleTerminalInput(e) {
+  if (e.key !== 'Enter') return;
+  const input = e.target;
+  const cmd = input.value.trim().toLowerCase();
+  const body = document.getElementById('termBody');
+  if (!body) return;
+
+  // echo command
+  const echo = document.createElement('div');
+  echo.className = 'term-line';
+  echo.innerHTML = `<span class="term-prompt">shreyas@os:~$</span> <span class="term-cmd">${input.value}</span>`;
+  body.insertBefore(echo, body.querySelector('.term-input-line'));
+
+  let out = TERM_CMDS[cmd];
+  if (typeof out === 'function') out = out();
+  if (out === 'CLEAR') {
+    body.querySelectorAll('.term-line, .term-out').forEach(el => el.remove());
+  } else if (out) {
+    const o = document.createElement('div');
+    o.className = 'term-out';
+    o.textContent = out;
+    body.insertBefore(o, body.querySelector('.term-input-line'));
+  } else if (cmd) {
+    const o = document.createElement('div');
+    o.className = 'term-out';
+    o.textContent = `Command not found: ${cmd}. Type 'help'.`;
+    body.insertBefore(o, body.querySelector('.term-input-line'));
+  }
+
+  input.value = '';
+  body.scrollTop = body.scrollHeight;
+}
+
+/* ── Chat (Groq via your backend — end users never enter API keys) ── */
+// Deploy worker from groq-worker.js, then paste your worker URL here once:
+const CHAT_API_URL = 'https://YOUR-WORKER.workers.dev';
+
+const CHAT_SYSTEM = `You are Shreyas Assistant inside Shreyas OS, a personal portfolio OS for Shreyas Ranjit Gaonkar.
+Answer helpfully and briefly about Shreyas:
+- AI/ML engineering student at Bhausaheb Vartak Polytechnic
+- Indian Classical Vocalist (Gwalior Gharana), student of Shri Ranjit Dinkar Gaonkar
+- Skills: Python, ML, Computer Vision, PyTorch, web (HTML/CSS/JS)
+- Projects: Swarsanskar Music Academy site, Matruchhaya, Virtual Mouse, ML mini-projects, Secure Examination Ecosystem proposal
+- Achievements: Gold Medal singing (Vasai Taluka Kala Krida), Madhyama Purna (ABGMV)
+- Contact: gaonkarshreyas021@gmail.com, GitHub shreyasrgaonkar, LinkedIn, Instagram @swarshreyas.official
+If asked something unrelated, answer normally but stay friendly. Do not invent fake credentials.`;
+
+function buildChatContent() {
+  const configured = CHAT_API_URL && !CHAT_API_URL.includes('YOUR-WORKER');
+  return `
+    <div class="chat-wrap">
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="chat-bubble sys">${configured
+          ? 'Hi! Ask about Shreyas, projects, skills, music, or contact.'
+          : 'Chat backend not configured yet. Owner: deploy groq-worker.js and set CHAT_API_URL in index.html.'}</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Type a message…" autocomplete="off" />
+        <button type="button" id="chatSend" title="Send">➤</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindChat(container) {
+  const msgs = container.querySelector('#chatMsgs');
+  const input = container.querySelector('#chatInput');
+  const sendBtn = container.querySelector('#chatSend');
+  if (!msgs || !input || !sendBtn) return;
+
+  let history = [];
+  let busy = false;
+
+  const addBubble = (text, type) => {
+    const el = document.createElement('div');
+    el.className = 'chat-bubble ' + type;
+    el.textContent = text;
+    msgs.appendChild(el);
+    msgs.scrollTop = msgs.scrollHeight;
+    return el;
+  };
+
+  const send = async () => {
+    const text = input.value.trim();
+    if (!text || busy) return;
+
+    if (!CHAT_API_URL || CHAT_API_URL.includes('YOUR-WORKER')) {
+      addBubble('Backend URL missing. Set CHAT_API_URL to your Cloudflare Worker URL.', 'err');
+      return;
+    }
+
+    input.value = '';
+    addBubble(text, 'user');
+    history.push({ role: 'user', content: text });
+    busy = true;
+    sendBtn.disabled = true;
+    const thinking = addBubble('Thinking…', 'sys');
+
+    try {
+      const recent = history.slice(-10);
+      const res = await fetch(CHAT_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: text,
+          history: recent,
+          system: CHAT_SYSTEM
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      thinking.remove();
+
+      if (!res.ok) {
+        addBubble('API error: ' + (data.error || data.message || ('HTTP ' + res.status)), 'err');
+      } else {
+        const reply = data.reply || data.message || 'No reply.';
+        addBubble(reply, 'bot');
+        history.push({ role: 'assistant', content: reply });
+      }
+    } catch (err) {
+      thinking.remove();
+      addBubble('Network error: ' + (err.message || String(err)), 'err');
+    } finally {
+      busy = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  };
+
+  sendBtn.addEventListener('click', send);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      send();
+    }
+  });
+}
+
+/* Settings content */
+function buildSettingsContent() {
+  const current = mode;
+  return `
+    <div class="content-section">
+      <h2>Display Settings</h2>
+      <p style="margin-bottom:1rem;">Choose how Shreyas OS presents itself.</p>
+      <p style="margin-bottom:1rem;font-size:0.78rem;color:var(--muted);">Shortcuts: <span style="color:var(--gold);">Ctrl+D</span> Desktop · <span style="color:var(--gold);">Ctrl+M</span> Mobile · <span style="color:var(--gold);">Ctrl+L</span> Lock</p>
+      <div class="settings-option" data-mode="desktop">
+        <div>
+          <div class="label">🖥️ Desktop Mode</div>
+          <div class="desc">Windows-style desktop with windows & taskbar</div>
+        </div>
+        <div class="radio-dot ${current === 'desktop' ? 'active' : ''}"></div>
+      </div>
+      <div class="settings-option" data-mode="mobile">
+        <div>
+          <div class="label">📱 Mobile Mode</div>
+          <div class="desc">Android-style home screen & apps</div>
+        </div>
+        <div class="radio-dot ${current === 'mobile' ? 'active' : ''}"></div>
+      </div>
+      <div class="settings-option" data-mode="auto">
+        <div>
+          <div class="label">🔄 Auto (Device Adaptive)</div>
+          <div class="desc">Detect screen size automatically</div>
+        </div>
+        <div class="radio-dot ${!localStorage.getItem('shreyasos-mode') ? 'active' : ''}"></div>
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.8rem;color:var(--muted);">Changes apply immediately and are remembered.</p>
+
+      <div class="settings-heading">Appearance</div>
+      <div class="theme-toggle-row">
+        <div>
+          <div class="label">${getTheme() === 'light' ? '☀️' : '🌙'} Light Mode</div>
+          <div class="desc">Switch between dark and light appearance</div>
+        </div>
+        <div class="theme-switch ${getTheme() === 'light' ? 'on' : ''}" id="themeSwitch"><div class="knob"></div></div>
+      </div>
+
+      <div class="settings-heading">Wallpaper</div>
+      <div class="wallpaper-grid" id="wallpaperGrid">
+        <div class="wallpaper-swatch wp-upload ${getWallpaper() === 'custom' ? 'active' : ''}" id="wpUploadTile" style="${getWallpaper() === 'custom' && localStorage.getItem('shreyasos-custom-wallpaper-img') ? `background-image:url('${localStorage.getItem('shreyasos-custom-wallpaper-img')}');background-size:cover;background-position:center;` : ''}">
+          ${getWallpaper() === 'custom' ? '<span class="wp-check">✓</span>' : ''}
+          <span class="wp-name">${getWallpaper() === 'custom' ? '📷 Your Photo' : '➕ Add Photo'}</span>
+        </div>
+        <input type="file" id="wpFileInput" accept="image/*" style="display:none" />
+        ${Object.keys(WALLPAPERS).map(id => `
+          <div class="wallpaper-swatch ${getWallpaper() === id ? 'active' : ''}" data-wp="${id}" style="background:${WALLPAPERS[id].swatch};">
+            ${getWallpaper() === id ? '<span class="wp-check">✓</span>' : ''}
+            <span class="wp-name">${WALLPAPERS[id].name}</span>
+          </div>
+        `).join('')}
+      </div>
+      <p style="margin-top:0.6rem;font-size:0.72rem;color:var(--muted);">Tip: upload your own photo to use as wallpaper — it's saved on this device only.</p>
+    </div>
+  `;
+}
+
+function bindSettings(container) {
+  container.querySelectorAll('.settings-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const m = opt.dataset.mode;
+      if (m === 'auto') {
+        localStorage.removeItem('shreyasos-mode');
+        const auto = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+        switchMode(auto);
+      } else {
+        localStorage.setItem('shreyasos-mode', m);
+        switchMode(m);
       }
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.cert-card, .project-card, .skill-group, .identity-card, .timeline-item, .achievement-card, .strength-card, .about-photo-wrap').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s';
-    observer.observe(el);
   });
+
+  const bodyEl = container.querySelector('.window-body, .mapp-body') || container;
+
+  const themeSwitch = container.querySelector('#themeSwitch');
+  if (themeSwitch) {
+    themeSwitch.addEventListener('click', () => {
+      setTheme(getTheme() === 'light' ? 'dark' : 'light');
+      bodyEl.innerHTML = buildSettingsContent();
+      bindSettings(container);
+    });
+  }
+
+  container.querySelectorAll('.wallpaper-swatch[data-wp]').forEach(sw => {
+    sw.addEventListener('click', () => {
+      setWallpaper(sw.dataset.wp);
+      bodyEl.innerHTML = buildSettingsContent();
+      bindSettings(container);
+    });
+  });
+
+  const wpUploadTile = container.querySelector('#wpUploadTile');
+  const wpFileInput = container.querySelector('#wpFileInput');
+  if (wpUploadTile && wpFileInput) {
+    wpUploadTile.addEventListener('click', () => wpFileInput.click());
+    wpFileInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        alert('Please choose an image file.');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        setCustomWallpaper(reader.result);
+        bodyEl.innerHTML = buildSettingsContent();
+        bindSettings(container);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+}
+
+function switchMode(newMode) {
+  if (newMode === mode) return;
+  // close everything
+  Object.keys(openWindows).forEach(id => closeWindow(id));
+  document.getElementById('desktop').classList.remove('active');
+  document.getElementById('mobile').classList.remove('active');
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('lock-screen').classList.add('hidden');
+  // clear mobile apps
+  document.getElementById('mobileApps').innerHTML = '';
+
+  mode = newMode;
+  if (mode === 'desktop') {
+    document.getElementById('login-screen').classList.remove('hidden');
+  } else {
+    document.getElementById('lock-screen').classList.remove('hidden');
+  }
+  updateClocks();
+}
+
+/* ── Keyboard shortcuts: Ctrl+D Desktop · Ctrl+M Mobile · Ctrl+L Lock ── */
+document.addEventListener('keydown', (e) => {
+  // ignore while typing in inputs / terminal
+  const tag = (e.target && e.target.tagName) || '';
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) return;
+  if (!e.ctrlKey && !e.metaKey) return;
+
+  const key = e.key.toLowerCase();
+
+  // Ctrl+D → Desktop mode
+  if (key === 'd') {
+    e.preventDefault();
+    localStorage.setItem('shreyasos-mode', 'desktop');
+    if (mode === 'desktop' && document.getElementById('desktop').classList.contains('active')) return;
+    Object.keys(openWindows).forEach(id => closeWindow(id));
+    document.getElementById('mobile').classList.remove('active');
+    document.getElementById('mobileApps').innerHTML = '';
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('lock-screen').classList.add('hidden');
+    launchDesktop();
+    return;
+  }
+
+  // Ctrl+M → Mobile / Android mode
+  if (key === 'm') {
+    e.preventDefault();
+    localStorage.setItem('shreyasos-mode', 'mobile');
+    if (mode === 'mobile' && document.getElementById('mobile').classList.contains('active')) return;
+    Object.keys(openWindows).forEach(id => closeWindow(id));
+    document.getElementById('desktop').classList.remove('active');
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('lock-screen').classList.add('hidden');
+    launchMobile();
+    return;
+  }
+
+  // Ctrl+L → Lock screen
+  if (key === 'l') {
+    e.preventDefault();
+    Object.keys(openWindows).forEach(id => closeWindow(id));
+    document.getElementById('desktop').classList.remove('active');
+    document.getElementById('mobile').classList.remove('active');
+    document.getElementById('mobileApps').innerHTML = '';
+    if (mode === 'desktop') {
+      document.getElementById('login-screen').classList.remove('hidden');
+    } else {
+      document.getElementById('lock-screen').classList.remove('hidden');
+    }
+    updateClocks();
+  }
+});
+
+/* ═══════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════ */
+function launchMobile() {
+  mode = 'mobile';
+  document.getElementById('mobile').classList.add('active');
+  document.getElementById('desktop').classList.remove('active');
+  buildMobileHome();
+  updateClocks();
+
+  // Gesture bar → go home / close app
+  const navBar = document.querySelector('#mobile .nav-bar');
+  if (navBar && !navBar.dataset.bound) {
+    navBar.dataset.bound = '1';
+    navBar.addEventListener('click', () => {
+      const container = document.getElementById('mobileApps');
+      const open = container.querySelector('.mobile-app');
+      if (open) {
+        open.classList.remove('open');
+        setTimeout(() => {
+          open.remove();
+          container.style.pointerEvents = 'none';
+        }, 380);
+      }
+    });
+  }
+}
+
+function buildMobileHome() {
+  const grid = document.getElementById('appGrid');
+  const dock = document.getElementById('dock');
+  grid.innerHTML = '';
+  dock.innerHTML = '';
+
+  // 2x2 grid next to clock (Pixel-style compact)
+  const gridIds = ['about', 'projects', 'chat', 'music'];
+  const mainApps = gridIds.map(id => APPS.find(a => a.id === id)).filter(Boolean);
+
+  const bindTap = (el, fn) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      fn();
+    });
+  };
+
+  mainApps.forEach(app => {
+    const el = document.createElement('div');
+    el.className = 'app-icon';
+    el.setAttribute('role', 'button');
+    el.tabIndex = 0;
+    el.innerHTML = `<div class="ai">${appIcon(app, 'mobile-app-svg')}</div><div class="al">${app.name}</div>`;
+    bindTap(el, () => openMobileApp(app.id));
+    grid.appendChild(el);
+  });
+
+  // dock: Education, Contact, Home, Settings, Certs
+  const dockItems = [
+    APPS.find(a => a.id === 'education'),
+    APPS.find(a => a.id === 'contact'),
+    { id: '_home', name: 'Home', icon: 'icons/home.svg' },
+    APPS.find(a => a.id === 'settings'),
+    APPS.find(a => a.id === 'certs')
+  ];
+  dockItems.forEach(app => {
+    if (!app) return;
+    const el = document.createElement('div');
+    el.className = 'app-icon';
+    el.setAttribute('role', 'button');
+    el.tabIndex = 0;
+    el.innerHTML = `<div class="ai">${appIcon(app, 'mobile-dock-svg')}</div>`;
+    if (app.id === '_home') {
+      bindTap(el, () => {
+        const container = document.getElementById('mobileApps');
+        const open = container.querySelector('.mobile-app');
+        if (open) {
+          open.classList.remove('open');
+          setTimeout(() => {
+            open.remove();
+            container.style.pointerEvents = 'none';
+          }, 380);
+        }
+      });
+    } else {
+      bindTap(el, () => openMobileApp(app.id));
+    }
+    dock.appendChild(el);
+  });
+
+  // Media card → About
+  const wmBtn = document.getElementById('wmOpenAbout');
+  if (wmBtn && !wmBtn.dataset.bound) {
+    wmBtn.dataset.bound = '1';
+    wmBtn.addEventListener('click', () => openMobileApp('about'));
+  }
+  const wmCard = document.getElementById('widgetMedia');
+  if (wmCard && !wmCard.dataset.bound) {
+    wmCard.dataset.bound = '1';
+    wmCard.addEventListener('click', (e) => {
+      if (e.target.closest('.wm-btn')) return;
+      openMobileApp('about');
+    });
+  }
+
+  // Working Google search bar (same as desktop)
+  const searchInput = document.getElementById('mobileSearchInput');
+  const searchGo = document.getElementById('mobileSearchGo');
+  if (searchInput && !searchInput.dataset.bound) {
+    searchInput.dataset.bound = '1';
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (runGoogleSearch(searchInput.value)) searchInput.value = '';
+        else searchInput.focus();
+      }
+    });
+  }
+  if (searchGo && !searchGo.dataset.bound) {
+    searchGo.dataset.bound = '1';
+    searchGo.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (searchInput) {
+        if (runGoogleSearch(searchInput.value)) searchInput.value = '';
+        else searchInput.focus();
+      }
+    });
+  }
+
+  updateClocks();
+}
+
+function openMobileApp(appId) {
+  const app = APPS.find(a => a.id === appId);
+  if (!app) return;
+
+  const container = document.getElementById('mobileApps');
+  container.innerHTML = '';
+  container.style.pointerEvents = 'auto';
+
+  const view = document.createElement('div');
+  view.className = 'mobile-app';
+  view.dataset.app = appId;
+
+  let body = '';
+  if (app.isSettings) {
+    body = buildSettingsContent();
+  } else if (app.isChat) {
+    body = buildChatContent();
+  } else {
+    body = app.content;
+  }
+
+  view.innerHTML = `
+    <div class="mapp-header">
+      <button type="button" class="mapp-back" id="mBack" aria-label="Back">←</button>
+      <div class="mapp-title">${appIcon(app, 'mobile-header-svg')}<span>${app.name}</span></div>
+    </div>
+    <div class="mapp-body${app.isChat ? ' mapp-body-chat' : ''}">${body}</div>
+  `;
+
+  container.appendChild(view);
+  requestAnimationFrame(() => view.classList.add('open'));
+
+  const closeApp = () => {
+    view.classList.remove('open');
+    setTimeout(() => {
+      view.remove();
+      if (!container.querySelector('.mobile-app')) {
+        container.style.pointerEvents = 'none';
+      }
+    }, 380);
+  };
+
+  view.querySelector('#mBack').addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeApp();
+  });
+
+  // swipe down on header to close (modern Android feel)
+  const header = view.querySelector('.mapp-header');
+  let touchStartY = 0;
+  header.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  header.addEventListener('touchend', (e) => {
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (dy > 60) closeApp();
+  }, { passive: true });
+
+  if (app.isSettings) {
+    bindSettings(view);
+  }
+  if (app.isChat) {
+    bindChat(view);
+  }
+}
+
+/* ── Resize handling ── */
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    // only auto-switch if no manual preference
+    if (!localStorage.getItem('shreyasos-mode')) {
+      const should = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+      if (should !== mode && document.getElementById('boot-screen').classList.contains('hidden')) {
+        // soft switch only if already past boot/login
+        if ((mode === 'desktop' && document.getElementById('desktop').classList.contains('active')) ||
+            (mode === 'mobile' && document.getElementById('mobile').classList.contains('active'))) {
+          switchMode(should);
+          if (should === 'desktop') {
+            document.getElementById('login-screen').classList.add('hidden');
+            launchDesktop();
+          } else {
+            document.getElementById('lock-screen').classList.add('hidden');
+            launchMobile();
+          }
+        }
+      }
+    }
+  }, 300);
+});
 </script>
 </body>
 </html>
